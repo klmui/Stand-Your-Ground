@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/RPGPP_LT/Scene/rpgpp_lt_scene_1.0.unity
+    path: Assets/Scenes/Levels-Horde/rpgpp_lt_scene_1.0.unity
     guid: d2809ab9b90eea7419d8d90d4c505d35
   - enabled: 1
     path: Assets/Scenes/Levels-Horde/fake-scene-2.unity
