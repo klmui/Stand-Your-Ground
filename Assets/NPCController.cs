@@ -14,7 +14,7 @@ public class NPCController : MonoBehaviour
     [Header("References")]
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Animator anim;
-    [SerializeField] private Rigidbody rb;
+    //[SerializeField] private Rigidbody rb;
     [SerializeField] private Transform PathParent;
     private List<Vector3> path = new List<Vector3>();
 
@@ -30,10 +30,13 @@ public class NPCController : MonoBehaviour
         {
             for(int i = 0; i< PathParent.childCount; i++)
             {
+                Transform currTarget = PathParent.GetChild(i);
+
                 RaycastHit hit;
-                if(Physics.Raycast(PathParent.GetChild(i).position, Vector3.down, out hit))
+                if(Physics.Raycast(currTarget.position, Vector3.down, out hit))
                 {
                     path.Add(hit.point);
+                    currTarget.position = hit.point;
                 }
             }
         }
@@ -64,7 +67,7 @@ public class NPCController : MonoBehaviour
             return;
 
         Vector3 currMove = transform.position - lastPos;
-        Debug.Log(currMove.magnitude);
+        //Debug.Log(currMove.magnitude);
         anim.SetFloat("Speed", currMove.magnitude / (agent.speed*Time.deltaTime));
         lastPos = transform.position;
 
