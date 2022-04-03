@@ -28,9 +28,9 @@ public class Hero_Stats : MonoBehaviour
 
     private void Update()
     {
-        //if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            //TakeDamage(0.5f);
+            TakeDamage(0.5f);
         }
     }
 
