@@ -23,6 +23,9 @@ public class NPCController : MonoBehaviour
 
     private Vector3 lastPos;
 
+    [SerializeField] private Vector3 startPos;
+    [SerializeField] private Vector3 targetPos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +42,12 @@ public class NPCController : MonoBehaviour
                     currTarget.position = hit.point;
                 }
             }
+        }
+        else
+        {
+            transform.position = new Vector3(startPos.x, transform.position.y, startPos.z);
+
+            path.Add(new Vector3(targetPos.x, transform.position.y, targetPos.z));
         }
 
         GetNewTarget();
