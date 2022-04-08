@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15999,8 +15999,9 @@ MonoBehaviour:
   accelSpeed: 4
   agent: {fileID: 2146391686}
   anim: {fileID: 1161689322}
-  rb: {fileID: 0}
   PathParent: {fileID: 225395293}
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
 --- !u!195 &2146391686
 NavMeshAgent:
   m_ObjectHideFlags: 0
