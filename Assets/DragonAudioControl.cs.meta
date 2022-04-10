@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: db9730709081e40498d6a3fcc0f0e4c8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - source: {instanceID: 0}
+  - roar1: {fileID: 8300000, guid: b5c964964516a96438c3d96cd8a20748, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
