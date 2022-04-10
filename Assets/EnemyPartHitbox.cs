@@ -10,4 +10,9 @@ public class EnemyPartHitbox : MonoBehaviour
     {
         enemy.OnHit();
     }
+
+    private void Start()
+    {
+        enemy.AddHitboxPart(this);
+    }
 }

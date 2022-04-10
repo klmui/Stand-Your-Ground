@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyStats : MonoBehaviour
 {
@@ -13,6 +14,18 @@ public class EnemyStats : MonoBehaviour
     float invincibleDuration = 20f / 60f;
     float invincibleEndTime;
     bool dead = false;
+
+    private List<EnemyPartHitbox> hitboxParts;
+
+    private void Start()
+    {
+        hitboxParts = new List<EnemyPartHitbox>();
+    }
+
+    public void AddHitboxPart(EnemyPartHitbox hitbox)
+    {
+        hitboxParts.Add(hitbox);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -64,6 +77,18 @@ public class EnemyStats : MonoBehaviour
     {
         //Play dying animation and set dead bool to true
         anim.SetTrigger("Die");
+
+        GetComponent<NavMeshAgent>().enabled = false;
+        DisableHitboxes();
+
         dead = true;
+    }
+
+    private void DisableHitboxes()
+    {
+        foreach (EnemyPartHitbox hitbox in hitboxParts)
+        {
+            hitbox.enabled = false;
+        }
     }
 }
