@@ -58,7 +58,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: bgm-game
     clip: {fileID: 8300000, guid: 03c58b5083251b54fbee365c2b1b490a, type: 3}
-    volume: 0
+    volume: 0.5
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
