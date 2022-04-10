@@ -36,6 +36,8 @@ public class PauseMenu : MonoBehaviour
     public void ReturnToTitle() {
         Time.timeScale = 1f;
         GameIsPaused = false;
+        FindObjectOfType<AudioManager>().Stop("bgm-game");
         SceneManager.LoadScene(0);
+        FindObjectOfType<AudioManager>().Play("bgm-title");
     }
 }
