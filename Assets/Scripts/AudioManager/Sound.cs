@@ -22,6 +22,9 @@ public class Sound {
 
 	public AudioMixerGroup mixerGroup;
 
+	[Range(0f, 1f)]
+	public float spatialBlend = .0f;
+
 	[HideInInspector]
 	public AudioSource source;
 

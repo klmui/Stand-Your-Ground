@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed1e3066c22a1647bbe605fa0b06d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MasterVolumeMultiplier: 0.5
   mixerGroup: {fileID: 0}
   sounds:
   - name: bgm-title
@@ -55,13 +54,25 @@ MonoBehaviour:
     pitchVariance: 0
     loop: 1
     mixerGroup: {fileID: 0}
+    spatialBlend: 0
     source: {fileID: 0}
   - name: bgm-game
     clip: {fileID: 8300000, guid: 03c58b5083251b54fbee365c2b1b490a, type: 3}
-    volume: 1
+    volume: 0
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
     loop: 1
     mixerGroup: {fileID: 0}
+    spatialBlend: 0
+    source: {fileID: 0}
+  - name: sword-swing-1
+    clip: {fileID: 8300000, guid: 80502e18f68bb734b9dded7bb8d2e750, type: 3}
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    spatialBlend: 0
     source: {fileID: 0}
