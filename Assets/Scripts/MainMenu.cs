@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public void PlayGame() {
+        FindObjectOfType<AudioManager>().Stop("bgm-title");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        FindObjectOfType<AudioManager>().Play("bgm-game");
     }
 
     public void QuitGame() {

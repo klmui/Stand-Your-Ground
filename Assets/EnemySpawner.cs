@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
     public void SpawnEnemy()
     {
         Instantiate(NPCPrefab);
-
+        
         nextSpawnTime = Time.time + timePerEnemy;
     }
 }
