@@ -51,4 +51,9 @@ public class NPCAttackController : MonoBehaviour
             anim.SetTrigger(attackTriggerStrings[attackTrigger]);
         }
     }
+
+    public void DoRandomAttack()
+    {
+        DoAttack(Random.Range(0, attackCombos.Length));
+    }
 }
