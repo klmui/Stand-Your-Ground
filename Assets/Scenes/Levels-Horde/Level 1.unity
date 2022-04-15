@@ -7902,6 +7902,11 @@ CapsuleCollider:
   m_Height: 1.4160671
   m_Direction: 1
   m_Center: {x: 0.090296865, y: -0.116194725, z: 0.038830873}
+--- !u!4 &992087067 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5438662939475854054, guid: 1df4ebe00e4a172408a3b4146d720e82, type: 3}
+  m_PrefabInstance: {fileID: 9056681319309155061}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1002130129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13661,8 +13666,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7ce195e9b7bee40a4e64ad507b14fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnemiesThatCanAttackAtOnce: 0
-  playerTransform: {fileID: 0}
+  maxEnemiesThatCanAttackAtOnce: 1
+  playerTransform: {fileID: 992087067}
 --- !u!4 &1806595981
 Transform:
   m_ObjectHideFlags: 0
