@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15993,14 +15993,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5202e9a4e3838884a8b546ba5e94da2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToAggro: 0
+  minRandAttackTime: 0
+  maxRandAttackTime: 0
+  state: 0
   maxMoveSpeed: 8
   turnSpeed: 135
   frictionStrength: 2
   accelSpeed: 4
+  attackController: {fileID: 0}
   agent: {fileID: 2146391686}
   anim: {fileID: 1161689322}
-  rb: {fileID: 0}
   PathParent: {fileID: 225395293}
+  startPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
 --- !u!195 &2146391686
 NavMeshAgent:
   m_ObjectHideFlags: 0
