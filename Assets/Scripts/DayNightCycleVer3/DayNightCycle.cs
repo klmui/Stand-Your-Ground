@@ -24,6 +24,9 @@ public class DayNightCycle : MonoBehaviour
     private Vector3 dir;
     private Renderer rend;
 
+    private bool isEnemySpawned;
+    [SerializeField] private List<GameObject> fireSpirits;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +42,19 @@ public class DayNightCycle : MonoBehaviour
         fade = 0;
         timeLight = HMS_to_Time(hmsStarsLight.x, hmsStarsLight.y, hmsStarsLight.z);
         timeExtinguish = HMS_to_Time(hmsStarsExtinguish.x, hmsStarsExtinguish.y, hmsStarsExtinguish.z);
+
+        if (time < sunRise || time > sunSet) {
+            foreach (GameObject fireSpirit in fireSpirits) {
+                fireSpirit.SetActive(true);
+            }
+            isEnemySpawned = true;
+        } else {
+            foreach (GameObject fireSpirit in fireSpirits) {
+                fireSpirit.SetActive(false);
+            }
+            isEnemySpawned = false;
+        }
+
     }
 
     // Update is called once per frame
@@ -70,6 +86,18 @@ public class DayNightCycle : MonoBehaviour
 
         RenderSettings.fogColor = Color.Lerp(fogColorNight, fogColorDay, intensity * intensity);
         if (sun != null) sun.intensity = intensity;
+
+        if ((time < sunRise || time > sunSet) && !isEnemySpawned) {
+            foreach (GameObject fireSpirit in fireSpirits) {
+                fireSpirit.SetActive(true);
+            }
+            isEnemySpawned = true;
+        } else if (time > sunRise && time < sunSet && isEnemySpawned) {
+            foreach (GameObject fireSpirit in fireSpirits) {
+                fireSpirit.SetActive(false);
+            }
+            isEnemySpawned = false;
+        }
 
         if (Time_Falls_Between(time, timeLight, timeExtinguish))
         {
