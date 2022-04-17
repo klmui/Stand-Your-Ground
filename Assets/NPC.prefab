@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 628967103097898523}
   - component: {fileID: 3942980219820057274}
   - component: {fileID: 5294407643113500297}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Test Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5014,10 +5014,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5202e9a4e3838884a8b546ba5e94da2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToAggro: 0
+  minRandAttackTime: 0
+  maxRandAttackTime: 0
+  state: 0
   maxMoveSpeed: 8
   turnSpeed: 135
   frictionStrength: 2
   accelSpeed: 4
+  attackController: {fileID: 0}
   agent: {fileID: 8392473544403168247}
   anim: {fileID: 8442893258137546002}
   PathParent: {fileID: 0}

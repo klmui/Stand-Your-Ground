@@ -43,14 +43,21 @@ public class DayNightCycle : MonoBehaviour
         timeLight = HMS_to_Time(hmsStarsLight.x, hmsStarsLight.y, hmsStarsLight.z);
         timeExtinguish = HMS_to_Time(hmsStarsExtinguish.x, hmsStarsExtinguish.y, hmsStarsExtinguish.z);
 
-        if (time < sunRise || time > sunSet) {
-            foreach (GameObject fireSpirit in fireSpirits) {
-                fireSpirit.SetActive(true);
+        if (time < sunRise || time > sunSet)
+        {
+            foreach (GameObject fireSpirit in fireSpirits)
+            {
+                //fireSpirit.SetActive(true);
+                fireSpirit.GetComponent<MagicFire>().FadeIn();
             }
             isEnemySpawned = true;
-        } else {
-            foreach (GameObject fireSpirit in fireSpirits) {
-                fireSpirit.SetActive(false);
+        }
+        else if (time > sunRise && time < sunSet)
+        {
+            foreach (GameObject fireSpirit in fireSpirits)
+            {
+                fireSpirit.GetComponent<MagicFire>().FadeOut();
+                //fireSpirit.SetActive(false);
             }
             isEnemySpawned = false;
         }
@@ -89,12 +96,14 @@ public class DayNightCycle : MonoBehaviour
 
         if ((time < sunRise || time > sunSet) && !isEnemySpawned) {
             foreach (GameObject fireSpirit in fireSpirits) {
-                fireSpirit.SetActive(true);
+                //fireSpirit.SetActive(true);
+                fireSpirit.GetComponent<MagicFire>().FadeIn();
             }
             isEnemySpawned = true;
         } else if (time > sunRise && time < sunSet && isEnemySpawned) {
             foreach (GameObject fireSpirit in fireSpirits) {
-                fireSpirit.SetActive(false);
+                fireSpirit.GetComponent<MagicFire>().FadeOut();
+                //fireSpirit.SetActive(false);
             }
             isEnemySpawned = false;
         }
