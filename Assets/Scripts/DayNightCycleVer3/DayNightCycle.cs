@@ -25,7 +25,7 @@ public class DayNightCycle : MonoBehaviour
     private Renderer rend;
 
     private bool isEnemySpawned;
-    [SerializeField] private List<GameObject> fireSpirits;
+    [SerializeField] private List<MagicFire> fireSpirits;
 
     // Start is called before the first frame update
     void Start()
@@ -45,21 +45,11 @@ public class DayNightCycle : MonoBehaviour
 
         if (time < sunRise || time > sunSet)
         {
-            foreach (GameObject fireSpirit in fireSpirits)
-            {
-                //fireSpirit.SetActive(true);
-                fireSpirit.GetComponent<MagicFire>().FadeIn();
-            }
-            isEnemySpawned = true;
+            FadeInFireSpirits();
         }
         else if (time > sunRise && time < sunSet)
         {
-            foreach (GameObject fireSpirit in fireSpirits)
-            {
-                fireSpirit.GetComponent<MagicFire>().FadeOut();
-                //fireSpirit.SetActive(false);
-            }
-            isEnemySpawned = false;
+            FadeOutFireSpirits();
         }
 
     }
@@ -95,17 +85,9 @@ public class DayNightCycle : MonoBehaviour
         if (sun != null) sun.intensity = intensity;
 
         if ((time < sunRise || time > sunSet) && !isEnemySpawned) {
-            foreach (GameObject fireSpirit in fireSpirits) {
-                //fireSpirit.SetActive(true);
-                fireSpirit.GetComponent<MagicFire>().FadeIn();
-            }
-            isEnemySpawned = true;
+            FadeInFireSpirits();
         } else if (time > sunRise && time < sunSet && isEnemySpawned) {
-            foreach (GameObject fireSpirit in fireSpirits) {
-                fireSpirit.GetComponent<MagicFire>().FadeOut();
-                //fireSpirit.SetActive(false);
-            }
-            isEnemySpawned = false;
+            FadeOutFireSpirits();
         }
 
         if (Time_Falls_Between(time, timeLight, timeExtinguish))
@@ -140,5 +122,27 @@ public class DayNightCycle : MonoBehaviour
             else return true;
         }
         
+    }
+
+    private void FadeInFireSpirits()
+    {
+        foreach (MagicFire fireSpirit in fireSpirits)
+        {
+            //fireSpirit.SetActive(true);
+            fireSpirit.ResetTriggers();
+            fireSpirit.FadeIn();
+        }
+        isEnemySpawned = true;
+    }
+
+    private void FadeOutFireSpirits()
+    {
+        foreach (MagicFire fireSpirit in fireSpirits)
+        {
+            //fireSpirit.SetActive(false);
+            fireSpirit.ResetTriggers();
+            fireSpirit.FadeOut();
+        }
+        isEnemySpawned = false;
     }
 }
