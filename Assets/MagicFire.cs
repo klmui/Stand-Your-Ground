@@ -15,4 +15,10 @@ public class MagicFire : MonoBehaviour
     {
         anim.SetTrigger("FadeIn");
     }
+
+    public void ResetTriggers()
+    {
+        anim.ResetTrigger("FadeIn");
+        anim.ResetTrigger("FadeOut");
+    }
 }
