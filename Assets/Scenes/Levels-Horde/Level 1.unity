@@ -219,7 +219,7 @@ MeshCollider:
   m_GameObject: {fileID: 7572807}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -3948,6 +3948,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4208458315195486, guid: c96016c34e7be62488e588470988ef5b, type: 3}
   m_PrefabInstance: {fileID: 468995468}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &471054883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8393721943974544828, guid: 75ac2e07e61afc946be8057431355770, type: 3}
+  m_PrefabInstance: {fileID: 8392473544904998257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &471054887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471054883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d323fe09fadf0e43b277ce6ecbc9c03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event1:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1839055813}
+        m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+        m_MethodName: CheckAttackDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &474849596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20138,6 +20170,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4943765590059028, guid: e7489574cca6d4645a7019414b8288e8, type: 3}
   m_PrefabInstance: {fileID: 1836074706}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1839055811 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8392473545727960097, guid: 75ac2e07e61afc946be8057431355770, type: 3}
+  m_PrefabInstance: {fileID: 8392473544904998257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886dd6c0de168ad4587141d731399d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1839055813 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8392473544403168244, guid: 75ac2e07e61afc946be8057431355770, type: 3}
+  m_PrefabInstance: {fileID: 8392473544904998257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5202e9a4e3838884a8b546ba5e94da2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1861009611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23283,9 +23337,33 @@ PrefabInstance:
       propertyPath: PathParent
       value: 
       objectReference: {fileID: 225395293}
+    - target: {fileID: 8392473544403168244, guid: 75ac2e07e61afc946be8057431355770, type: 3}
+      propertyPath: swordHitbox
+      value: 
+      objectReference: {fileID: 7572812}
+    - target: {fileID: 8392473544403168244, guid: 75ac2e07e61afc946be8057431355770, type: 3}
+      propertyPath: distanceToAggro
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392473544403168244, guid: 75ac2e07e61afc946be8057431355770, type: 3}
+      propertyPath: attackController
+      value: 
+      objectReference: {fileID: 1839055811}
+    - target: {fileID: 8392473544403168244, guid: 75ac2e07e61afc946be8057431355770, type: 3}
+      propertyPath: maxRandAttackTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392473544403168244, guid: 75ac2e07e61afc946be8057431355770, type: 3}
+      propertyPath: minRandAttackTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8392473544403168249, guid: 75ac2e07e61afc946be8057431355770, type: 3}
       propertyPath: Loop
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393910255694571058, guid: 75ac2e07e61afc946be8057431355770, type: 3}
+      propertyPath: m_Name
+      value: Enemy Sword Hitbox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ac2e07e61afc946be8057431355770, type: 3}
@@ -23343,6 +23421,10 @@ PrefabInstance:
     - target: {fileID: 4587222717439503774, guid: 1df4ebe00e4a172408a3b4146d720e82, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438662939787569561, guid: 1df4ebe00e4a172408a3b4146d720e82, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -109.316
       objectReference: {fileID: 0}
     - target: {fileID: 5438662939787569561, guid: 1df4ebe00e4a172408a3b4146d720e82, type: 3}
       propertyPath: m_LocalRotation.w

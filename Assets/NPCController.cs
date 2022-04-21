@@ -5,10 +5,6 @@ using UnityEngine.AI;
 
 public class NPCController : MonoBehaviour
 {
-    [SerializeField] private float distanceToAggro;
-    [SerializeField] private float minRandAttackTime;
-    [SerializeField] private float maxRandAttackTime;
-
     [System.Serializable] public enum NPCStateEnum
     {
         pathing,
@@ -17,12 +13,19 @@ public class NPCController : MonoBehaviour
     }
 
     [SerializeField] private NPCStateEnum state;
+    public NPCStateEnum State => state;
 
-    [Header("Properties")]
+    [Header("Movement Properties")]
     [SerializeField] private float maxMoveSpeed;
     [SerializeField] private float turnSpeed;
     [SerializeField] private float frictionStrength;
     [SerializeField] private float accelSpeed;
+
+    [Header("Attack Properties")]
+    [SerializeField] private float distanceToAggro;
+    [SerializeField] private float minRandAttackTime;
+    [SerializeField] private float maxRandAttackTime;
+    private float nextAttackTime;
 
     [Header("References")]
     [SerializeField] private NPCAttackController attackController;
@@ -30,6 +33,9 @@ public class NPCController : MonoBehaviour
     [SerializeField] private Animator anim;
     //[SerializeField] private Rigidbody rb;
     [SerializeField] private Transform PathParent;
+
+    [SerializeField] private Collider swordHitbox;
+
     private List<Vector3> path = new List<Vector3>();
 
     private Vector3 target;
@@ -102,13 +108,19 @@ public class NPCController : MonoBehaviour
                     if(distToPlayer.magnitude <= distanceToAggro)
                     {
                         state = NPCStateEnum.aggrod;
+                        SetNextPossibleAttackTime();
+
+                        //Stop navmesh agent
+                        pathFinished = true;
+                        agent.isStopped = true;
+                        anim.SetFloat("Speed", 0);
+
                         return;
                     }
 
                     //Idle at end of path
                     if (pathFinished)
                         return;
-
 
                     //Moving along path, set animation vars
                     Vector3 currMove = transform.position - lastPos;
@@ -124,6 +136,26 @@ public class NPCController : MonoBehaviour
                 }
             case NPCStateEnum.aggrod:
                 {
+                    if(Time.time >= nextAttackTime)
+                    {
+                        if(NPCManager.Instance.CanNewEnemyAttack())
+                        {
+                            //Start Attack
+                            attackController.DoRandomAttack();
+                            state = NPCStateEnum.attacking;
+                            swordHitbox.enabled = true;
+                        }
+                        else
+                        {
+                            //Can't attack now, get new attack time
+                            SetNextPossibleAttackTime();
+                        }
+                    }
+                    else
+                    {
+                        //Circle around player or something
+                    }
+
                     break;
                 }
             case NPCStateEnum.attacking:
@@ -131,7 +163,34 @@ public class NPCController : MonoBehaviour
                     break;
                 }
         }
+    }
 
+    public void SetNextPossibleAttackTime()
+    {
+        nextAttackTime = Time.time + Random.Range(minRandAttackTime, maxRandAttackTime);
+    }
 
+    public void CheckAttackDone()
+    {
+        Debug.Log("Check Attack Done");
+
+        if(state == NPCStateEnum.attacking)
+        {
+            state = NPCStateEnum.aggrod;
+            NPCManager.Instance.EnemyDoneAttack();
+
+            swordHitbox.enabled = false;
+
+            SetNextPossibleAttackTime();
+        }
+    }
+
+    public void GotHit()
+    {
+        //Reset attack triggers
+        attackController.GotHit();
+
+        //If attacking, set state to aggro'd
+        CheckAttackDone();
     }
 }

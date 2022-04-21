@@ -9,6 +9,8 @@ public class EnemyStats : MonoBehaviour
 
     [SerializeField] private Animator anim;
 
+    [SerializeField] private NPCController npcController;
+
     [SerializeField] private int hp = 3;
     bool invincible = false;
     float invincibleDuration = 20f / 60f;
@@ -50,6 +52,8 @@ public class EnemyStats : MonoBehaviour
 
         //Show debug message
         Debug.Log("hit!");
+
+        npcController.GotHit();
 
         //Play blood splatter animation
         particleSys.Play();

@@ -56,4 +56,12 @@ public class NPCAttackController : MonoBehaviour
     {
         DoAttack(Random.Range(0, attackCombos.Length));
     }
+
+    public void GotHit()
+    {
+        foreach(string atkTrigger in attackTriggerStrings)
+        {
+            anim.ResetTrigger(atkTrigger);
+        }
+    }
 }
