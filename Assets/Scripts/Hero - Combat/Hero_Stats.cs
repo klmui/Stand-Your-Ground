@@ -62,6 +62,6 @@ public class Hero_Stats : MonoBehaviour
         
     private void Die()
     {
-
+        FindObjectOfType<GameManager>().EndGame();
     }
 }
