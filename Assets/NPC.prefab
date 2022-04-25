@@ -4962,6 +4962,7 @@ GameObject:
   - component: {fileID: 8392473544403168247}
   - component: {fileID: 8392473545727960097}
   - component: {fileID: 8392473544403168249}
+  - component: {fileID: 1863711362}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -4976,7 +4977,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8392473544403168240}
-  m_LocalRotation: {x: -0, y: -0.9778731, z: -0, w: 0.20919898}
+  m_LocalRotation: {x: 0, y: -0.97787285, z: 0, w: 0.20920049}
   m_LocalPosition: {x: 84.19, y: 23.22, z: 65.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5001,6 +5002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSys: {fileID: 4804714858351434816}
   anim: {fileID: 8442893258137546002}
+  npcController: {fileID: 8392473544403168244}
   hp: 3
 --- !u!114 &8392473544403168244
 MonoBehaviour:
@@ -5014,18 +5016,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5202e9a4e3838884a8b546ba5e94da2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToAggro: 0
-  minRandAttackTime: 0
-  maxRandAttackTime: 0
+  terrainLayer:
+    serializedVersion: 2
+    m_Bits: 128
   state: 0
   maxMoveSpeed: 8
   turnSpeed: 135
   frictionStrength: 2
   accelSpeed: 4
-  attackController: {fileID: 0}
+  minStrafeSpeedPercent: 1
+  maxStrafeSpeed: 1
+  minRandStrafeTime: 0
+  maxRandStrafeTime: 2
+  distanceToAggro: 3
+  minRandAttackTime: 3
+  maxRandAttackTime: 5
+  attackController: {fileID: 8392473545727960097}
   agent: {fileID: 8392473544403168247}
   anim: {fileID: 8442893258137546002}
-  PathParent: {fileID: 0}
+  pathParent: {fileID: 0}
+  swordHitbox: {fileID: 7572812}
   startPos: {x: 80, y: 0, z: 75}
   targetPos: {x: 73, y: 0, z: 54}
 --- !u!195 &8392473544403168247
@@ -5084,11 +5094,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 901f0f52ddf5d9df2aaab4e9238bd154, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 12177c7e3b9b3b0fdb30e633ac1fa1b9, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -5170,6 +5180,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1863711362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8392473544403168240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2eecaff9a99f54693eac5b07dc38d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 8392473544403168249}
+  spawnSound: {fileID: 8300000, guid: 12177c7e3b9b3b0fdb30e633ac1fa1b9, type: 3}
+  startAttackSound: {fileID: 8300000, guid: 901f0f52ddf5d9df2aaab4e9238bd154, type: 3}
+  gotHitSound: {fileID: 8300000, guid: bbf21340d5f1f45499f234da04d2b346, type: 3}
+  dieSound: {fileID: 8300000, guid: fb6dbcf885a223c4cb0239d4173c16c3, type: 3}
 --- !u!1 &8393465651503461806
 GameObject:
   m_ObjectHideFlags: 0
@@ -6834,6 +6861,8 @@ GameObject:
   - component: {fileID: 8388265045304359798}
   - component: {fileID: 8442893258137546002}
   - component: {fileID: 8493897813021947630}
+  - component: {fileID: 471054887}
+  - component: {fileID: 471054891}
   m_Layer: 0
   m_Name: Female A | Model
   m_TagString: Untagged
@@ -6924,6 +6953,105 @@ MonoBehaviour:
     - prefab: {fileID: 100000, guid: 7e462abb283b73a4ba97438461785130, type: 3}
     slots: 4
   disabledGraySkeleton: {fileID: 0}
+--- !u!114 &471054887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8393721943974544828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d323fe09fadf0e43b277ce6ecbc9c03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event1:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8392473544403168244}
+        m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+        m_MethodName: CheckAttackDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  event2:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1863711362}
+        m_TargetAssemblyTypeName: NPCSFXController, Assembly-CSharp
+        m_MethodName: PlayStartAttackSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  event3:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1863711362}
+        m_TargetAssemblyTypeName: NPCSFXController, Assembly-CSharp
+        m_MethodName: PlayGotHitSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  event4:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1863711362}
+        m_TargetAssemblyTypeName: NPCSFXController, Assembly-CSharp
+        m_MethodName: PlayDieSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  event5:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8392473544403168244}
+        m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+        m_MethodName: LookAtPlayerAttacking
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &471054891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8393721943974544828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee4ba72b5c89244fb21c488f7611810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8393724348778067812
 GameObject:
   m_ObjectHideFlags: 0
@@ -8146,8 +8274,11 @@ GameObject:
   - component: {fileID: 8392264613071600612}
   - component: {fileID: 8362739846072899368}
   - component: {fileID: 8370751530952719816}
+  - component: {fileID: 7572813}
+  - component: {fileID: 7572812}
+  - component: {fileID: 7572811}
   m_Layer: 0
-  m_Name: Sword_1_Short
+  m_Name: Enemy Sword Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8218,6 +8349,48 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &7572813
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8393910255694571058}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!64 &7572812
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8393910255694571058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 1f1cd6faa38270c449338bafe0a4b7ce, type: 3}
+--- !u!114 &7572811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8393910255694571058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b718f090df2b9ed4fae67aacd9d233df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8393911009661481654
 GameObject:
   m_ObjectHideFlags: 0
