@@ -20,8 +20,9 @@ public class EnemySwordBehavior : MonoBehaviour
     {
         if (col.gameObject.tag == "MainCamera")
         {
-            Debug.Log("TAKE DMG");
             Hero_Stats.Instance.TakeDamage(1);
+            VibrationManager.singleton.TriggerVibration(40, 2, 255, OVRInput.Controller.LTouch);
+            VibrationManager.singleton.TriggerVibration(40, 2, 255, OVRInput.Controller.RTouch);
         }
     }
 }
