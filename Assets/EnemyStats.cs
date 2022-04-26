@@ -53,8 +53,6 @@ public class EnemyStats : MonoBehaviour
         //Show debug message
         Debug.Log("hit!");
 
-        npcController.GotHit();
-
         //Play blood splatter animation
         particleSys.Play();
 
@@ -64,8 +62,13 @@ public class EnemyStats : MonoBehaviour
         if (hp <= 0)
         {
             Die();
+
+            npcController.GotHit(true);
+
             return;
         }
+
+        npcController.GotHit(false);
 
         //If code hits here, enemy has taken damage but has not been killed
 

@@ -5,11 +5,14 @@ using UnityEngine.AI;
 
 public class NPCController : MonoBehaviour
 {
+    [SerializeField] private LayerMask terrainLayer;
+
     [System.Serializable] public enum NPCStateEnum
     {
         pathing,
         aggrod,
-        attacking
+        attacking,
+        dead
     }
 
     [SerializeField] private NPCStateEnum state;
@@ -20,6 +23,14 @@ public class NPCController : MonoBehaviour
     [SerializeField] private float turnSpeed;
     [SerializeField] private float frictionStrength;
     [SerializeField] private float accelSpeed;
+
+    [Header("Strafe Properties")]
+    [SerializeField] private float minStrafeSpeedPercent;
+    [SerializeField] private float maxStrafeSpeed;
+    [SerializeField] private float minRandStrafeTime;
+    [SerializeField] private float maxRandStrafeTime;
+    private float nextStrafeSwapTime;
+    private float strafeSpeed;
 
     [Header("Attack Properties")]
     [SerializeField] private float distanceToAggro;
@@ -32,11 +43,11 @@ public class NPCController : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Animator anim;
     //[SerializeField] private Rigidbody rb;
-    [SerializeField] private Transform PathParent;
+    [SerializeField] private Transform pathParent;
 
     [SerializeField] private Collider swordHitbox;
 
-    private List<Vector3> path = new List<Vector3>();
+    private List<Vector3> path;
 
     private Vector3 target;
     private bool pathFinished = false;
@@ -56,17 +67,52 @@ public class NPCController : MonoBehaviour
             playerTransform = NPCManager.Instance.PlayerTransform;
         }
 
-        if (PathParent != null)
+        /*if(path == null)
+            path = new List<Vector3>();
+
+        if (pathParent != null)
         {
-            for(int i = 0; i< PathParent.childCount; i++)
+            for(int i = 0; i< pathParent.childCount; i++)
             {
-                Transform currTarget = PathParent.GetChild(i);
+                Transform currTarget = pathParent.GetChild(i);
 
                 RaycastHit hit;
                 if(Physics.Raycast(currTarget.position, Vector3.down, out hit))
                 {
                     path.Add(hit.point);
                     currTarget.position = hit.point;
+                }
+            }
+        }
+        else
+        {
+            //transform.position = new Vector3(startPos.x, transform.position.y, startPos.z);
+            //path.Add(new Vector3(targetPos.x, transform.position.y, targetPos.z));
+        }
+
+        GetNewTarget();*/
+    }
+
+    public void SetPath(Transform newPathParent)
+    {
+        Debug.Log("Set path");
+
+        path = new List<Vector3>();
+
+        pathParent = newPathParent.transform;
+        Debug.Log(pathParent.name);
+
+        if (pathParent != null)
+        {
+            for (int i = 0; i < pathParent.childCount; i++)
+            {
+                Transform currTarget = pathParent.GetChild(i);
+
+                RaycastHit hit;
+                if (Physics.Raycast(currTarget.position, Vector3.down, out hit, 10f, terrainLayer))
+                {
+                    path.Add(hit.point);
+                    //currTarget.position = hit.point;
                 }
             }
         }
@@ -101,6 +147,11 @@ public class NPCController : MonoBehaviour
     {
         switch(state)
         {
+            case NPCStateEnum.dead:
+                {
+                    return;
+                }
+
             case NPCStateEnum.pathing:
                 {
                     //Check if close enough to player to aggro
@@ -110,10 +161,21 @@ public class NPCController : MonoBehaviour
                         state = NPCStateEnum.aggrod;
                         SetNextPossibleAttackTime();
 
-                        //Stop navmesh agent
                         pathFinished = true;
+
+                        nextStrafeSwapTime = Time.time + 0.25f;
+
+                        anim.SetTrigger("StartStrafe");
+
+                        /*//Stop navmesh agent
+                        agent.SetDestination(transform.position);
                         agent.isStopped = true;
                         anim.SetFloat("Speed", 0);
+
+                        //Look at player
+                        transform.LookAt(playerTransform);
+
+                        transform.eulerAngles = new Vector3(0, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);*/
 
                         return;
                     }
@@ -136,7 +198,22 @@ public class NPCController : MonoBehaviour
                 }
             case NPCStateEnum.aggrod:
                 {
-                    if(Time.time >= nextAttackTime)
+                    //Set strafe speed
+                    if(Time.time >= nextStrafeSwapTime)
+                    {
+                        float nextStrafeSpeed = Mathf.Max(minStrafeSpeedPercent, Random.Range(0, 1));
+                        float sign = Random.Range(-1, 1);
+                        if (sign >= 0)
+                            sign = 1;
+                        else
+                            sign = -1;
+
+                        strafeSpeed = nextStrafeSpeed * sign * maxStrafeSpeed;
+
+                        nextStrafeSwapTime = Time.time + Random.Range(minRandStrafeTime, maxRandStrafeTime);
+                    }
+
+                    if(Time.time >= nextAttackTime) //Time to start new attack (or at least check)
                     {
                         if(NPCManager.Instance.CanNewEnemyAttack())
                         {
@@ -144,6 +221,18 @@ public class NPCController : MonoBehaviour
                             attackController.DoRandomAttack();
                             state = NPCStateEnum.attacking;
                             swordHitbox.enabled = true;
+
+                            //Stop strafing
+                            agent.SetDestination(transform.position);
+                            agent.speed = 0;
+
+                            //Look at player
+                            Vector3 lookPos = playerTransform.position - transform.position;
+                            lookPos.y = 0;
+                            Quaternion rot = Quaternion.LookRotation(lookPos);
+                            transform.rotation = rot;
+
+                            return;
                         }
                         else
                         {
@@ -151,15 +240,46 @@ public class NPCController : MonoBehaviour
                             SetNextPossibleAttackTime();
                         }
                     }
-                    else
+                    else //Circle around player
                     {
-                        //Circle around player or something
+                        //get direction to player
+                        Vector3 dir = (playerTransform.position - transform.position).normalized;
+                        dir.y = 0;
+
+                        //spir dir left or right depending on strafe speed
+                        dir = Quaternion.Euler(0, 90, 0) * dir;
+                        dir *= strafeSpeed;
+
+                        //Adjust target position based on distance to player
+                        float distanceAway = (playerTransform.position - transform.position).magnitude;
+                        float distDiff = distanceAway - distanceToAggro;
+                        Vector3 toPlayer = (playerTransform.position - transform.position).normalized * distDiff;
+                        toPlayer.y = 0;
+
+                        dir += toPlayer;
+
+                        //Move in target direction
+                        agent.SetDestination(transform.position + dir);
+
+                        //Look at player
+                        Vector3 lookPos = playerTransform.position - transform.position;
+                        lookPos.y = 0;
+                        Quaternion rot = Quaternion.LookRotation(lookPos);
+                        transform.rotation = rot;
+
+                        //Set animation values + navmesh Speed
+                        float strafeSpeedLerped = Mathf.Lerp(anim.GetFloat("StrafeSpeed"), strafeSpeed, Time.deltaTime*8);
+                        agent.speed = Mathf.Abs(strafeSpeedLerped);
+                        anim.SetFloat("StrafeSpeed", strafeSpeedLerped);
                     }
 
                     break;
                 }
             case NPCStateEnum.attacking:
                 {
+                    //Make sure not moving
+                    agent.speed = 0;
+
                     break;
                 }
         }
@@ -185,12 +305,29 @@ public class NPCController : MonoBehaviour
         }
     }
 
-    public void GotHit()
+    public void GotHit(bool killed)
     {
         //Reset attack triggers
         attackController.GotHit();
 
         //If attacking, set state to aggro'd
         CheckAttackDone();
+
+        if (killed)
+            state = NPCStateEnum.dead;
+    }
+
+    public void LookAtPlayerAttacking()
+    {
+        /*if (state != NPCStateEnum.attacking)
+            Debug.LogError("bruh");
+
+        state = NPCStateEnum.attacking;
+
+        //Look at player
+        Vector3 lookPos = playerTransform.position - transform.position;
+        lookPos.y = 0;
+        Quaternion rot = Quaternion.LookRotation(lookPos);
+        transform.rotation = rot;*/
     }
 }
