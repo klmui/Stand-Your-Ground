@@ -89,6 +89,8 @@ public class EnemyStats : MonoBehaviour
         DisableHitboxes();
 
         dead = true;
+
+        EnemySpawnController.Instance.EnemyKilled();
     }
 
     private void DisableHitboxes()

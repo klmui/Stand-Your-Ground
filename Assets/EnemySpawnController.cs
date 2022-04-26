@@ -21,10 +21,19 @@ public class EnemySpawnController : MonoBehaviour
 
     private float nextSpawnTime;
 
+    [SerializeField] private VictoryMenu victoryMenu;
+    private int numEnemiesLeft;
+
+    public static EnemySpawnController Instance;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (Instance == null)
+            Instance = this;
+
         int numEnemies = enemySpawnPattern.Length;
+        numEnemiesLeft = numEnemies;
 
         spawnTimes = new List<float>();
         paths = new List<Transform>();
@@ -73,4 +82,13 @@ public class EnemySpawnController : MonoBehaviour
         }
     }
 
+    public void EnemyKilled()
+    {
+        numEnemiesLeft--;
+
+        if(numEnemiesLeft <= 0)
+        {
+            victoryMenu.VictoryMenuUI.SetActive(true);
+        }
+    }
 }

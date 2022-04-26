@@ -728,7 +728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2136,7 +2136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9421,6 +9421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 3
   heroHpSlider: {fileID: 822555854831421149}
+  invincibleDuration: 0.5
 --- !u!4 &990236402
 Transform:
   m_ObjectHideFlags: 0
@@ -13792,6 +13793,7 @@ MonoBehaviour:
     pathToFollow: {fileID: 225395293}
   - spawnTime: 3
     pathToFollow: {fileID: 225395293}
+  victoryMenu: {fileID: 1770675205}
 --- !u!4 &1541188747
 Transform:
   m_ObjectHideFlags: 0
@@ -24594,7 +24596,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &1320030781543131110
 RectTransform:
@@ -25134,7 +25136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8392473544403168240, guid: 75ac2e07e61afc946be8057431355770, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8392473544403168243, guid: 75ac2e07e61afc946be8057431355770, type: 3}
       propertyPath: m_RootOrder
@@ -25241,6 +25243,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5438662938681653843, guid: 1df4ebe00e4a172408a3b4146d720e82, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5438662939787569561, guid: 1df4ebe00e4a172408a3b4146d720e82, type: 3}
       propertyPath: m_LocalPosition.y
       value: -109.316
@@ -25261,6 +25267,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d23d933a5bb042546bab11d145ca9a20, type: 2}
+    - target: {fileID: 5438662940094133070, guid: 1df4ebe00e4a172408a3b4146d720e82, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6262277318431462917, guid: 1df4ebe00e4a172408a3b4146d720e82, type: 3}
       propertyPath: m_Name
       value: VR Stuff

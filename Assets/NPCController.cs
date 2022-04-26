@@ -29,6 +29,7 @@ public class NPCController : MonoBehaviour
     [SerializeField] private float maxStrafeSpeed;
     [SerializeField] private float minRandStrafeTime;
     [SerializeField] private float maxRandStrafeTime;
+    [SerializeField] private float targetDistanceToPlayer;
     private float nextStrafeSwapTime;
     private float strafeSpeed;
 
@@ -167,6 +168,8 @@ public class NPCController : MonoBehaviour
 
                         anim.SetTrigger("StartStrafe");
 
+                        agent.SetDestination(transform.position);
+
                         /*//Stop navmesh agent
                         agent.SetDestination(transform.position);
                         agent.isStopped = true;
@@ -252,7 +255,7 @@ public class NPCController : MonoBehaviour
 
                         //Adjust target position based on distance to player
                         float distanceAway = (playerTransform.position - transform.position).magnitude;
-                        float distDiff = distanceAway - distanceToAggro;
+                        float distDiff = distanceAway - targetDistanceToPlayer;
                         Vector3 toPlayer = (playerTransform.position - transform.position).normalized * distDiff;
                         toPlayer.y = 0;
 

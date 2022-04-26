@@ -5028,7 +5028,8 @@ MonoBehaviour:
   maxStrafeSpeed: 1
   minRandStrafeTime: 0
   maxRandStrafeTime: 2
-  distanceToAggro: 3
+  targetDistanceToPlayer: 2
+  distanceToAggro: 4
   minRandAttackTime: 3
   maxRandAttackTime: 5
   attackController: {fileID: 8392473545727960097}

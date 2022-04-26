@@ -14,6 +14,10 @@ public class Hero_Stats : MonoBehaviour
     [Header("References")]
     [SerializeField] private Slider heroHpSlider;
 
+    private bool invincible;
+    [SerializeField] private float invincibleDuration;
+    private float nextVulnerableTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,8 +40,13 @@ public class Hero_Stats : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-        //if (isInvincible)
-            //return;
+        if (invincible)
+        {
+            if (Time.time >= nextVulnerableTime)
+                invincible = false;
+            else //player still invincible, don't process damage
+                return;
+        }
 
         hp -= dmg;
 
@@ -45,6 +54,12 @@ public class Hero_Stats : MonoBehaviour
         {
             hp = 0;
             Die();
+        }
+        else
+        {
+            //player still alive, give iFrames
+            invincible = true;
+            nextVulnerableTime = Time.time + invincibleDuration;
         }
 
         UpdateHPbar();
