@@ -9,6 +9,7 @@ public class DragonAudioControl : MonoBehaviour
 
     [SerializeField] private AudioClip roar1;
     [SerializeField] private AudioClip heavyImpact;
+    [SerializeField] private AudioClip bite;
     [SerializeField] private AudioClip flamethrower;
     [SerializeField] private AudioClip death;
 
@@ -22,6 +23,12 @@ public class DragonAudioControl : MonoBehaviour
     public void playStomp()
     {
         source.clip = heavyImpact;
+        source.Play();
+    }
+
+    public void playBite()
+    {
+        source.clip = bite;
         source.Play();
     }
 
