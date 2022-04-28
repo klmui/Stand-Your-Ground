@@ -26239,6 +26239,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5438662938566830477, guid: 1df4ebe00e4a172408a3b4146d720e82, type: 3}
+      propertyPath: m_AllowAnchorControl
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438662938566830477, guid: 1df4ebe00e4a172408a3b4146d720e82, type: 3}
+      propertyPath: m_HideControllerOnSelect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438662938566830477, guid: 1df4ebe00e4a172408a3b4146d720e82, type: 3}
       propertyPath: m_HapticHoverExitDuration
       value: 0.25
       objectReference: {fileID: 0}
@@ -26296,6 +26304,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5438662938681653840, guid: 1df4ebe00e4a172408a3b4146d720e82, type: 3}
       propertyPath: m_HitDetectionType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438662938681653840, guid: 1df4ebe00e4a172408a3b4146d720e82, type: 3}
+      propertyPath: m_AllowAnchorControl
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438662938681653840, guid: 1df4ebe00e4a172408a3b4146d720e82, type: 3}
+      propertyPath: m_HideControllerOnSelect
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5438662938681653840, guid: 1df4ebe00e4a172408a3b4146d720e82, type: 3}
