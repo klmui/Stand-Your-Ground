@@ -9,19 +9,10 @@ public class DragonAudioControl : MonoBehaviour
 
     [SerializeField] private AudioClip roar1;
     [SerializeField] private AudioClip heavyImpact;
+    [SerializeField] private AudioClip bite;
+    [SerializeField] private AudioClip flamethrower;
+    [SerializeField] private AudioClip death;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void playRoar1()
     {
@@ -34,4 +25,23 @@ public class DragonAudioControl : MonoBehaviour
         source.clip = heavyImpact;
         source.Play();
     }
+
+    public void playBite()
+    {
+        source.clip = bite;
+        source.Play();
+    }
+
+    public void playFlamethrower()
+    {
+        source.clip = flamethrower;
+        source.Play();
+    }
+
+    public void playDeath()
+    {
+        source.clip = death;
+        source.Play();
+    }
+
 }

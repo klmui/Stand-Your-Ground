@@ -5,8 +5,15 @@ using UnityEngine;
 public class DragonCollision : MonoBehaviour
 {
     [SerializeField] private AudioSource source;
-
     [SerializeField] private AudioClip hit;
+
+    public static HealthSystem DragonHP;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        DragonHP = new HealthSystem(10);
+    }
 
     void onTriggerEnter(Collider other)
     {
@@ -14,6 +21,8 @@ public class DragonCollision : MonoBehaviour
         {
             source.clip = hit;
             source.Play();
+
+            DragonHP.Damage(1);
         }
     }
 
