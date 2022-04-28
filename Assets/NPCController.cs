@@ -295,7 +295,7 @@ public class NPCController : MonoBehaviour
 
     public void CheckAttackDone()
     {
-        Debug.Log("Check Attack Done");
+        //Debug.Log("Check Attack Done");
 
         if(state == NPCStateEnum.attacking)
         {

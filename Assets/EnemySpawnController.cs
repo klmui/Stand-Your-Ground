@@ -55,7 +55,7 @@ public class EnemySpawnController : MonoBehaviour
 
         if (Time.time > nextSpawnTime)
         {
-            Debug.Log(Time.time + ", " + nextSpawnTime);
+            //Debug.Log(Time.time + ", " + nextSpawnTime);
 
             //Spawn enemy
             NPCController spawnedNPC = Instantiate(enemyPrefab).GetComponent<NPCController>();
