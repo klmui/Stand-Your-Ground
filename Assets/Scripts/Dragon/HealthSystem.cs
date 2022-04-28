@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class HealthSystem
 {
-    private int health;
-    private int healthMax;
+    private float health;
+    private float healthMax;
+    public HealthBar healthBar;
 
     public HealthSystem(int healthMax)
     {
@@ -13,25 +14,39 @@ public class HealthSystem
         this.healthMax = healthMax;
     }
 
-    public int GetHealth()
+    public float GetHealthPercent()
+    {
+        return (float)health / healthMax;
+    }
+
+    public void UpdateHPBar()
+    {
+        this.healthBar.SetHealth(GetHealthPercent());
+    }
+
+    public float GetHealth()
     {
         return this.health;
     }
 
-    public float GetHealthPercent()
+    public float GetHealthMax()
     {
-        return (float)health / healthMax;
+        return this.healthMax;
     }
 
     public void Damage(int damageAmount)
     {
         this.health -= damageAmount;
         if (this.health < 0) this.health = 0;
+        UpdateHPBar();
     }
 
     public void Heal(int healAmount)
     {
         this.health += healAmount;
         if (this.health > this.healthMax) this.health = this.healthMax;
+        UpdateHPBar();
     }
+
+
 }
