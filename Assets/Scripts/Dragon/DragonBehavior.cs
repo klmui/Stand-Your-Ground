@@ -19,21 +19,30 @@ public class DragonBehavior : MonoBehaviour
     }
 
     [SerializeField] public bool wait; // 1 = wait, 0 = ready to act
-    [SerializeField] public int nextAction;
+    [SerializeField] public ActionState nextAction;
+    [SerializeField] private Animator anim;
+
+    [SerializeField] public float rng;
 
     // Start is called before the first frame update
     void Start()
     {
-        wait = 0;
+        wait = false;
         nextAction = ActionState.Idle1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (wait == 0)
+        if (wait == false)
         {
-            nextAction = Random.Range(0, 8); // Random format is [minInclusive, maxExclusive)
+            rng = Random.value;
+            wait = true;
+            nextAction = (ActionState)Mathf.Floor(Random.Range(0, 8)); // Random format is [minInclusive, maxExclusive)
+            anim.SetInteger("Next Action",(int)nextAction);
+            anim.SetFloat("RNG", (float) rng);
+            anim.SetBool("Wait", wait);
+            
         }
     }
 }
