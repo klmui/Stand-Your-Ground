@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public GameObject GameOverMenuUI;
     public GameObject VictoryMenuUI;
 
+    [SerializeField] private GameObject[] swords;
+
     // Update is called once per frame
     void Update() {
         // Autowin
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
         if (!gameHasEnded) {
             gameHasEnded = true;
             FindObjectOfType<AudioManager>().Stop("bgm-game");
+            SetSwordsActive(false);
             Invoke("ShowGameOverUI", restartDelay);
         }
     }
@@ -39,6 +42,7 @@ public class GameManager : MonoBehaviour
         if (!gameHasEnded) {
             gameHasEnded = true;
             FindObjectOfType<AudioManager>().Stop("bgm-game");
+            SetSwordsActive(false);
             Invoke("ShowVictoryUI", victoryDelay);
         }
     }
@@ -47,5 +51,13 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("victory");
         VictoryMenuUI.SetActive(true);
         Time.timeScale = 0f;
+    }
+
+    public void SetSwordsActive(bool swordActive)
+    {
+        foreach(GameObject sword in swords)
+        {
+            sword.SetActive(swordActive);
+        }
     }
 }
