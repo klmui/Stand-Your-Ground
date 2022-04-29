@@ -105,6 +105,8 @@ public class NPCController : MonoBehaviour
 
         if (pathParent != null)
         {
+            transform.position = pathParent.position;
+
             for (int i = 0; i < pathParent.childCount; i++)
             {
                 Transform currTarget = pathParent.GetChild(i);
