@@ -4,41 +4,16 @@ using UnityEngine;
 
 public class DragonCollision : MonoBehaviour
 {
-    [SerializeField] private AudioSource source;
-    [SerializeField] private AudioClip hit;
+    //[SerializeField] private AudioSource source;
+    //[SerializeField] private AudioClip getHit;
 
-    public static HealthSystem DragonHP;
+    [SerializeField] private DragonHPController hpController;
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnTriggerEnter(Collider other)
     {
-        DragonHP = new HealthSystem(10);
-    }
+        //source.clip = getHit;
+        //source.Play();
 
-    void onTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "weapon")
-        {
-            source.clip = hit;
-            source.Play();
-
-            DragonHP.Damage(1);
-        }
-    }
-
-    void onTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "weapon")
-        {
-            print("STAY");
-        }
-    }
-
-    void onTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "weapon")
-        {
-            print("EXIT");
-        }
+        hpController.TakeDamage(1);
     }
 }

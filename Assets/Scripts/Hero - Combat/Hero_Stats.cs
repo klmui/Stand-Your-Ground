@@ -18,8 +18,6 @@ public class Hero_Stats : MonoBehaviour
     [SerializeField] private float invincibleDuration;
     private float nextVulnerableTime;
 
-    [SerializeField] private GameObject[] swords;
-
     // Start is called before the first frame update
     void Start()
     {

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - FxTemporaire
   - projectile
+  - weapon
+  - Dragon
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - PlayerSword
   - Fireball
   - PlayerHitbox
-  - 
-  - 
+  - EnemyAttackHitbox
+  - Shield
   - 
   - 
   - 
