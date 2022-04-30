@@ -88,7 +88,7 @@ public class EnemySpawnController : MonoBehaviour
 
         if(numEnemiesLeft <= 0)
         {
-            victoryMenu.VictoryMenuUI.SetActive(true);
+            FindObjectOfType<GameManager>().Victory();
         }
     }
 }

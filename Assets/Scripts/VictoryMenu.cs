@@ -6,13 +6,19 @@ using UnityEngine.SceneManagement;
 public class VictoryMenu : MonoBehaviour
 {
     public GameObject VictoryMenuUI;
+    [SerializeField] private int maxLevel = 5;
 
     public void PlayNextLevel() {
         Time.timeScale = 1f;
         VictoryMenuUI.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         FindObjectOfType<AudioManager>().Stop("bgm-game");
-        FindObjectOfType<AudioManager>().Play("bgm-game");
+
+        if (SceneManager.GetActiveScene().buildIndex == maxLevel) {
+            FindObjectOfType<AudioManager>().Play("bgm-title");
+        } else {
+            FindObjectOfType<AudioManager>().Play("bgm-game");
+        }
     }
 
     public void ReturnToTitle() {

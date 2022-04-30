@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366756, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1676,7 +1676,7 @@ GameObject:
   m_Component:
   - component: {fileID: 158542840}
   m_Layer: 0
-  m_Name: Test Path (1)
+  m_Name: Simple Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14850,10 +14850,6 @@ MonoBehaviour:
   enemySpawnPattern:
   - spawnTime: 1
     pathToFollow: {fileID: 158542840}
-  - spawnTime: 2
-    pathToFollow: {fileID: 225395293}
-  - spawnTime: 3
-    pathToFollow: {fileID: 225395293}
   victoryMenu: {fileID: 1770675205}
 --- !u!4 &1541188747
 Transform:
@@ -16411,7 +16407,7 @@ MonoBehaviour:
   hourMinuteSecond: {x: 9, y: 0, z: 0}
   hmsSunSet: {x: 18, y: 0, z: 0}
   days: 0
-  speed: 4000
+  speed: 1000
   intensityAtNoon: 1
   intensityAtSunSet: 0.5
   fogColorDay: {r: 0.5, g: 0.5, b: 0.5, a: 1}
