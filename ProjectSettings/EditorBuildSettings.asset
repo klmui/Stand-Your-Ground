@@ -5,25 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: 77562a4346be02de6ae03e907153607b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels-Horde/Level 1.unity
     guid: d2809ab9b90eea7419d8d90d4c505d35
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels-Horde/Level 2.unity
     guid: b1d4623efe1f69c5ab92d89ee629cca0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels-Horde/Level 3.unity
     guid: 42e675fced1cd9bafb82462661a0f4c8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels-Horde/Level 4.unity
     guid: 9f504af97a26e410dbdbc7658e86592d
   - enabled: 1
     path: Assets/Scenes/Levels-Horde/Level 5.unity
     guid: 8a86368f0439504658eb76315d361bea
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Credit.unity
     guid: cb4a1f02d8b1a7700a4abfb1751d40e6
   - enabled: 0
