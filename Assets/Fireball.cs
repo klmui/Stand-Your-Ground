@@ -23,10 +23,10 @@ public class Fireball : MonoBehaviour
     {
         ballHitbox.enabled = false;
 
-        GameObject boomObj = Instantiate(fireExplosion);
-        boomObj.transform.position = transform.position;
+        fireExplosion.SetActive(true);
+        fireExplosion.transform.position = transform.position;
 
-        boomObj.transform.parent = null;
+        fireExplosion.transform.parent = null;
         Destroy(gameObject);
     }
 }

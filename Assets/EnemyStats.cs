@@ -29,12 +29,21 @@ public class EnemyStats : MonoBehaviour
         hitboxParts.Add(hitbox);
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
-        OnHit();
-    }
+        if (other.gameObject.layer == 14)
+        {
+            //Fireball explosion, 1shot enemies
+            OnHit(3);
+        }
+        else
+        {
+            //Hit by sword, take 1 damage
+            OnHit(1);
+        }
+    }*/
 
-    public void OnHit()
+    public void OnHit(int dmg)
     {
         //Don't process getting hit if already dead
         if (dead)
@@ -57,7 +66,7 @@ public class EnemyStats : MonoBehaviour
         particleSys.Play();
 
         //Take damage
-        hp -= 1;
+        hp -= dmg;
 
         if (hp <= 0)
         {

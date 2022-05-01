@@ -8,6 +8,7 @@ TagManager:
   - projectile
   - weapon
   - Dragon
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - PlayerHitbox
   - EnemyAttackHitbox
   - Shield
-  - 
+  - Fireball BOOM
   - 
   - 
   - 
