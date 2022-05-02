@@ -46,5 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 3
   heroHpSlider: {fileID: 0}
-  invincibleDuration: 0.5
-  swords: []
+  invincibleDuration: 0.7

@@ -11333,6 +11333,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4183516897102132, guid: 7689b2d5def66f04eb3b0905d7b65084, type: 3}
   m_PrefabInstance: {fileID: 1352069200}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1358100288 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5115357896504446828, guid: 8fe645037c1948343a55b5b23ee8b6fd, type: 3}
+  m_PrefabInstance: {fileID: 5115357896957673885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163716b54a345ad45ae4b24689634bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1359241910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14149,6 +14160,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VR Stuff (Player) (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4019072980907738250, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+      propertyPath: heroStats
+      value: 
+      objectReference: {fileID: 1358100288}
     - target: {fileID: 4908358035582273370, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
       propertyPath: m_IsActive
       value: 0

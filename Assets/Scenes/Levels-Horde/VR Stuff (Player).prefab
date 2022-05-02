@@ -1430,6 +1430,7 @@ GameObject:
   - component: {fileID: 890495253176800225}
   - component: {fileID: 890495253176800233}
   - component: {fileID: 890495253176800230}
+  - component: {fileID: 4019072980907738250}
   m_Layer: 11
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1620,10 +1621,23 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.67504716
-  m_Height: 1.4160671
+  m_Radius: 0.65
+  m_Height: 3.93
   m_Direction: 1
   m_Center: {x: 0.090296865, y: -0.116194725, z: 0.038830873}
+--- !u!114 &4019072980907738250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890495253176800231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61edc2ea2dc712849bf9de36b03bf6b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroStats: {fileID: 0}
 --- !u!1 &890495253223141644
 GameObject:
   m_ObjectHideFlags: 0

@@ -10161,6 +10161,10 @@ PrefabInstance:
       propertyPath: m_text
       value: LEVEL 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4019072980907738250, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+      propertyPath: heroStats
+      value: 
+      objectReference: {fileID: 990236401}
     - target: {fileID: 7736440406495155690, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
       propertyPath: m_RootOrder
       value: 1
