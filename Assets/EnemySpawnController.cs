@@ -33,7 +33,8 @@ public class EnemySpawnController : MonoBehaviour
             Instance = this;
 
         int numEnemies = enemySpawnPattern.Length;
-        numEnemiesLeft = numEnemies;
+        if(numEnemies > 0)
+            numEnemiesLeft = numEnemies;
 
         spawnTimes = new List<float>();
         paths = new List<Transform>();
@@ -45,6 +46,11 @@ public class EnemySpawnController : MonoBehaviour
         }
 
         GetNextSpawnTime();
+    }
+
+    public void SetNumEnemies(int newNumEnemies)
+    {
+        numEnemiesLeft = newNumEnemies;
     }
 
     // Update is called once per frame

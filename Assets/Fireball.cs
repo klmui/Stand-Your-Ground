@@ -45,6 +45,11 @@ public class Fireball : MonoBehaviour
         respawnSlot.FireballGrabbed();
     }
 
+    public void OnThrown()
+    {
+        gameObject.layer = 10;
+    }
+
     public void SetSlot(FireballRespawnSlot newSlot)
     {
         respawnSlot = newSlot;
