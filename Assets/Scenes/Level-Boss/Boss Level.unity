@@ -3987,15 +3987,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalScale.x
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalScale.y
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalScale.z
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 485588, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4631,7 +4631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f4a9bfe1054e94eb19d33895986972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMoveSpeed: 50
+  maxMoveSpeed: 300
   turnSpeed: 135
   frictionStrength: 4
   accelSpeed: 10
