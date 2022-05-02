@@ -8,35 +8,57 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
     public GameObject optionsMenuUI;
-    [SerializeField] private GameManager gameManager;
 
     // Update is called once per frame
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (GameIsPaused) {
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //don't allow pausing if game is over
+            if (GameManager.Instance.GameHasEnded)
+            {
+                GameEnded(); //disable swords and menus
+                return;
+            }
+
+            if (GameIsPaused)
+            {
                 Resume();
-            } else {
+            }
+            else
+            {
                 Pause();
             }
-        }    
+        }
     }
 
-    public void Resume() {
+    public void Resume()
+    {
         pauseMenuUI.SetActive(false);
         optionsMenuUI.SetActive(false);
-        gameManager.SetSwordsActive(true);
+        GameManager.Instance.SetSwordsActive(true);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
 
-    void Pause() {
+    void Pause()
+    {
         pauseMenuUI.SetActive(true);
-        gameManager.SetSwordsActive(false);
+        GameManager.Instance.SetSwordsActive(false);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
 
-    public void ReturnToTitle() {
+    private void GameEnded()
+    {
+        pauseMenuUI.SetActive(false);
+        optionsMenuUI.SetActive(false);
+        GameManager.Instance.SetSwordsActive(false);
+        Time.timeScale = 0f;
+    }
+
+    public void ReturnToTitle()
+    {
         Time.timeScale = 1f;
         GameIsPaused = false;
         FindObjectOfType<AudioManager>().Stop("bgm-game");

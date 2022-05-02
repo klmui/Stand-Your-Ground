@@ -5898,7 +5898,7 @@ PrefabInstance:
       objectReference: {fileID: 990236401}
     - target: {fileID: 7736440406495155690, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7736440406495155690, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5948,6 +5948,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9206497193430417959, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 603543714}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
 --- !u!114 &639515449 stripped
@@ -12821,7 +12825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9f0c687893ca547a2c4b37924cb89b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objToFollow: {fileID: 0}
+  objToFollow: {fileID: 639515450}
   ignoreY: 1
 --- !u!1001 &1466487755
 PrefabInstance:
@@ -23983,7 +23987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8392473544403168243, guid: 75ac2e07e61afc946be8057431355770, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8392473544403168243, guid: 75ac2e07e61afc946be8057431355770, type: 3}
       propertyPath: m_LocalPosition.x

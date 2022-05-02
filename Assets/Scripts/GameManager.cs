@@ -6,12 +6,21 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     bool gameHasEnded = false;
+    public bool GameHasEnded => gameHasEnded;
     public float restartDelay = 1f;
     public float victoryDelay = 1f;
     public GameObject GameOverMenuUI;
     public GameObject VictoryMenuUI;
 
     [SerializeField] private GameObject[] swords;
+
+    public static GameManager Instance;
+
+    private void Start()
+    {
+        if (Instance == null)
+            Instance = this;
+    }
 
     // Update is called once per frame
     void Update() {
