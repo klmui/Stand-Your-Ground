@@ -5028,7 +5028,7 @@ MonoBehaviour:
   maxStrafeSpeed: 1
   minRandStrafeTime: 0
   maxRandStrafeTime: 2
-  targetDistanceToPlayer: 2
+  targetDistanceToPlayer: 1.75
   distanceToAggro: 4
   minRandAttackTime: 3
   maxRandAttackTime: 5
