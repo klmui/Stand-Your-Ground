@@ -39,6 +39,7 @@ public class DragonBehavior : MonoBehaviour
     [SerializeField] private Collider biteHitbox;
     [SerializeField] private Collider clawHitbox;
     [SerializeField] private Transform playerTransform;
+    [SerializeField] private ParticleSystem flamethrower;
 
     private Vector3 lastPos;
 
@@ -226,6 +227,16 @@ public class DragonBehavior : MonoBehaviour
     public void DisableBiteHitbox()
     {
         biteHitbox.enabled = false;
+    }
+
+    public void EnableFire()
+    {
+        flamethrower.Play();
+    }
+
+    public void DisableFire()
+    {
+        flamethrower.Stop();
     }
 }
 
