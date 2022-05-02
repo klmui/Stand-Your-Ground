@@ -5242,11 +5242,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restartDelay: 1
   victoryDelay: 1
-  GameOverMenuUI: {fileID: 0}
-  VictoryMenuUI: {fileID: 0}
+  GameOverMenuUI: {fileID: 1436567728}
+  VictoryMenuUI: {fileID: 1436567729}
   swords:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1436567727}
+  - {fileID: 1436567726}
 --- !u!4 &603543715
 Transform:
   m_ObjectHideFlags: 0
@@ -12487,6 +12487,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+--- !u!1 &1436567726 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 890495253223141644, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 1436567725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1436567727 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 890495252545692232, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 1436567725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1436567728 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2980123885691846062, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 1436567725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1436567729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2980123885557748360, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 1436567725}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1442393400
 PrefabInstance:
   m_ObjectHideFlags: 0

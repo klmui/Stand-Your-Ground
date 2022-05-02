@@ -5237,11 +5237,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restartDelay: 1
   victoryDelay: 1
-  GameOverMenuUI: {fileID: 0}
-  VictoryMenuUI: {fileID: 0}
+  GameOverMenuUI: {fileID: 2147122362}
+  VictoryMenuUI: {fileID: 2147122363}
   swords:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2147122361}
+  - {fileID: 2147122360}
 --- !u!4 &603543715
 Transform:
   m_ObjectHideFlags: 0
@@ -23892,6 +23892,26 @@ MonoBehaviour:
 --- !u!4 &2147122359 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 890495253176800224, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 2147122356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2147122360 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 890495253223141644, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 2147122356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2147122361 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 890495252545692232, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 2147122356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2147122362 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2980123885691846062, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 2147122356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2147122363 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2980123885557748360, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
   m_PrefabInstance: {fileID: 2147122356}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1692517689664664 stripped

@@ -5222,11 +5222,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restartDelay: 1
   victoryDelay: 1
-  GameOverMenuUI: {fileID: 0}
-  VictoryMenuUI: {fileID: 0}
-  swords:
-  - {fileID: 0}
-  - {fileID: 0}
+  GameOverMenuUI: {fileID: 639515452}
+  VictoryMenuUI: {fileID: 639515453}
+  swords: []
 --- !u!4 &603543715
 Transform:
   m_ObjectHideFlags: 0
@@ -5636,7 +5634,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629183702}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.120003, y: -2.0499992, z: -62.92}
+  m_LocalPosition: {x: -22.15, y: -2.0499992, z: -17.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5882,6 +5880,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: VR Stuff (Player) (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 890495252545692232, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 890495253223141644, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2980123885206246184, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
       propertyPath: m_text
       value: LEVEL 5
@@ -5959,6 +5965,16 @@ Transform:
 --- !u!4 &639515451 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7736440406495155690, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 639515448}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &639515452 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2980123885691846062, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 639515448}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &639515453 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2980123885557748360, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
   m_PrefabInstance: {fileID: 639515448}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &645568371
