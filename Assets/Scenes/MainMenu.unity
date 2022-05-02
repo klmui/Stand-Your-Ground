@@ -4477,7 +4477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8381271916873232138, guid: 1ac420de84123464b9b2fbac58546593, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 60
+      value: 77.5
       objectReference: {fileID: 0}
     - target: {fileID: 8381271916873232138, guid: 1ac420de84123464b9b2fbac58546593, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5530,7 +5530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8381271916873232138, guid: 1ac420de84123464b9b2fbac58546593, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 120
+      value: 155
       objectReference: {fileID: 0}
     - target: {fileID: 8381271916873232138, guid: 1ac420de84123464b9b2fbac58546593, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8871,7 +8871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8381271916873232138, guid: 1ac420de84123464b9b2fbac58546593, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -60
+      value: -77.5
       objectReference: {fileID: 0}
     - target: {fileID: 8381271916873232138, guid: 1ac420de84123464b9b2fbac58546593, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -15690,7 +15690,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8392473544403168240, guid: 75ac2e07e61afc946be8057431355770, type: 3}
   enemySpawnPattern: []
-  victoryMenu: {fileID: 1770675205}
 --- !u!4 &1541188747
 Transform:
   m_ObjectHideFlags: 0
@@ -32308,7 +32307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8381271916873232138, guid: 1ac420de84123464b9b2fbac58546593, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -120
+      value: -155
       objectReference: {fileID: 0}
     - target: {fileID: 8381271916873232138, guid: 1ac420de84123464b9b2fbac58546593, type: 3}
       propertyPath: m_AnchoredPosition.y

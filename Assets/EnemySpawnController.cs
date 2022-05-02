@@ -21,7 +21,6 @@ public class EnemySpawnController : MonoBehaviour
 
     private float nextSpawnTime;
 
-    [SerializeField] private VictoryMenu victoryMenu;
     private int numEnemiesLeft;
 
     public static EnemySpawnController Instance;

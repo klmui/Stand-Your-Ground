@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -9,26 +10,33 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject optionsMenuUI;
 
+    [SerializeField] private InputAction pauseControllerButton;
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //don't allow pausing if game is over
-            if (GameManager.Instance.GameHasEnded)
-            {
-                GameEnded(); //disable swords and menus
-                return;
-            }
+            PausePressed();
+        }
+    }
 
-            if (GameIsPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
+    public void PausePressed()
+    {
+        //don't allow pausing if game is over
+        if (GameManager.Instance.GameHasEnded)
+        {
+            GameEnded(); //disable swords and menus
+            return;
+        }
+
+        if (GameIsPaused)
+        {
+            Resume();
+        }
+        else
+        {
+            Pause();
         }
     }
 
