@@ -41,6 +41,8 @@ public class DragonBehavior : MonoBehaviour
     [SerializeField] private Transform playerTransform;
     [SerializeField] private ParticleSystem flamethrower;
 
+    [SerializeField] private GameObject fireHitbox;
+
     private Vector3 lastPos;
 
     [System.Serializable] public struct attack
@@ -232,11 +234,13 @@ public class DragonBehavior : MonoBehaviour
     public void EnableFire()
     {
         flamethrower.Play();
+        fireHitbox.SetActive(true);
     }
 
     public void DisableFire()
     {
         flamethrower.Stop();
+        fireHitbox.SetActive(false);
     }
 }
 

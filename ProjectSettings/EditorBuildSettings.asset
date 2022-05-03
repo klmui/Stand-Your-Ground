@@ -5,25 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: b4deee962f0d5d846b0c2d028a8c1a1b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels-Horde/Level 1.unity
     guid: d2809ab9b90eea7419d8d90d4c505d35
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels-Horde/Level 2.unity
     guid: b1d4623efe1f69c5ab92d89ee629cca0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels-Horde/Level 3.unity
     guid: 42e675fced1cd9bafb82462661a0f4c8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels-Horde/Level 4.unity
     guid: 9f504af97a26e410dbdbc7658e86592d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels-Horde/Level 5.unity
     guid: 8a86368f0439504658eb76315d361bea
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Credit.unity
     guid: cb4a1f02d8b1a7700a4abfb1751d40e6
   - enabled: 0
@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/VR - Testing.unity
     guid: cb2948b8a7b46ed4a94b5a2c6d22915c
+  - enabled: 1
+    path: Assets/Scenes/Level-Boss/Boss Level.unity
+    guid: f1a24dd5b488f4b4dbda3b069f2184e6
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 02591a13f529bdd43badbfc3739abd39, type: 2}
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 705eb50333de9e145bb5fe87d3ea5424, type: 2}
