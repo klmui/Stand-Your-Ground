@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -23,10 +24,14 @@ public class PauseMenu : MonoBehaviour
 
     public void PausePressed()
     {
+        if (Hero_Stats.Instance.Hp <= 0.01f)
+            return; //don't open menu if dead
+
         //don't allow pausing if game is over
         if (GameManager.Instance.GameHasEnded)
         {
-            GameEnded(); //disable swords and menus
+            GameManager.Instance.EnableRays();
+            PausePressedWhenGameEnded(); //disable swords and pause menu
             return;
         }
 
@@ -44,7 +49,10 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         optionsMenuUI.SetActive(false);
+
         GameManager.Instance.SetSwordsActive(true);
+        GameManager.Instance.DisableRays();
+
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
@@ -52,16 +60,22 @@ public class PauseMenu : MonoBehaviour
     void Pause()
     {
         pauseMenuUI.SetActive(true);
+
         GameManager.Instance.SetSwordsActive(false);
+        GameManager.Instance.EnableRays();
+
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
 
-    private void GameEnded()
+    private void PausePressedWhenGameEnded()
     {
         pauseMenuUI.SetActive(false);
         optionsMenuUI.SetActive(false);
+
         GameManager.Instance.SetSwordsActive(false);
+        GameManager.Instance.EnableRays();
+
         Time.timeScale = 0f;
     }
 

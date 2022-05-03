@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class GameManager : MonoBehaviour
     public GameObject VictoryMenuUI;
 
     [SerializeField] private GameObject[] swords;
+
+    [SerializeField] private LineRenderer[] lineRends;
+    [SerializeField] private XRInteractorLineVisual[] xrLineRends;
 
     public static GameManager Instance;
 
@@ -36,7 +40,10 @@ public class GameManager : MonoBehaviour
         if (!gameHasEnded) {
             gameHasEnded = true;
             FindObjectOfType<AudioManager>().Stop("bgm-game");
+
             SetSwordsActive(false);
+            EnableRays();
+
             Invoke("ShowGameOverUI", restartDelay);
         }
     }
@@ -51,7 +58,10 @@ public class GameManager : MonoBehaviour
         if (!gameHasEnded) {
             gameHasEnded = true;
             FindObjectOfType<AudioManager>().Stop("bgm-game");
+
             SetSwordsActive(false);
+            EnableRays();
+
             Invoke("ShowVictoryUI", victoryDelay);
         }
     }
@@ -68,5 +78,25 @@ public class GameManager : MonoBehaviour
         {
             sword.SetActive(swordActive);
         }
+    }
+
+    public void EnableRays()
+    {
+        foreach (XRInteractorLineVisual rend in xrLineRends)
+            rend.enabled = true;
+        foreach (LineRenderer rend in lineRends)
+            rend.enabled = true;
+    }
+
+    public void DisableRays()
+    {
+        //Don't disable rays on fireball level
+        if (SceneManager.GetActiveScene().buildIndex == 5)
+            return;
+
+        foreach (XRInteractorLineVisual rend in xrLineRends)
+            rend.enabled = false;
+        foreach (LineRenderer rend in lineRends)
+            rend.enabled = false;
     }
 }

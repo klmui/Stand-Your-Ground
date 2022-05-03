@@ -10,6 +10,7 @@ public class Hero_Stats : MonoBehaviour
     [Header("Stats")]
     [SerializeField] private float maxHp;
     private float hp;
+    public float Hp => hp;
 
     [Header("References")]
     [SerializeField] private Slider heroHpSlider;

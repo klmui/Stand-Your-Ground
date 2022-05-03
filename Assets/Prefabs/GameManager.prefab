@@ -51,3 +51,9 @@ MonoBehaviour:
   swords:
   - {fileID: 0}
   - {fileID: 0}
+  lineRends:
+  - {fileID: 0}
+  - {fileID: 0}
+  xrLineRends:
+  - {fileID: 0}
+  - {fileID: 0}

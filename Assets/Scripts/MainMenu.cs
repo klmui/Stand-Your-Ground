@@ -25,6 +25,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayDragonLevel()
     {
-
+        FindObjectOfType<AudioManager>().Stop("bgm-title");
+        SceneManager.LoadScene(7);
     }
 }

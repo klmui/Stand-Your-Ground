@@ -5242,6 +5242,12 @@ MonoBehaviour:
   swords:
   - {fileID: 2147122361}
   - {fileID: 2147122360}
+  lineRends:
+  - {fileID: 1836884197}
+  - {fileID: 1836884195}
+  xrLineRends:
+  - {fileID: 1836884196}
+  - {fileID: 1836884194}
 --- !u!4 &603543715
 Transform:
   m_ObjectHideFlags: 0
@@ -13053,7 +13059,6 @@ MonoBehaviour:
     pathToFollow: {fileID: 1632622296}
   - spawnTime: 10
     pathToFollow: {fileID: 1335744041}
-  victoryMenu: {fileID: 0}
 --- !u!4 &1541188747
 Transform:
   m_ObjectHideFlags: 0
@@ -21205,6 +21210,38 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: b75a02a185084be49bc0ead09438de21, type: 3}
+--- !u!114 &1836884194 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 890495252192278665, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 2147122356}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!120 &1836884195 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 890495252192278666, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 2147122356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1836884196 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 890495251276344148, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 2147122356}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!120 &1836884197 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 890495251276344149, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 2147122356}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1847585355
 GameObject:
   m_ObjectHideFlags: 0

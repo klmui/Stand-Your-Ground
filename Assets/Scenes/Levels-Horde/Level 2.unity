@@ -5642,6 +5642,12 @@ MonoBehaviour:
   swords:
   - {fileID: 1158556420}
   - {fileID: 1158556419}
+  lineRends:
+  - {fileID: 1158556426}
+  - {fileID: 1158556424}
+  xrLineRends:
+  - {fileID: 1158556425}
+  - {fileID: 1158556423}
 --- !u!4 &603543715
 Transform:
   m_ObjectHideFlags: 0
@@ -10239,6 +10245,38 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2980123885557748360, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
   m_PrefabInstance: {fileID: 1158556418}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1158556423 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 890495252192278665, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 1158556418}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!120 &1158556424 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 890495252192278666, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 1158556418}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1158556425 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 890495251276344148, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 1158556418}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!120 &1158556426 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 890495251276344149, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 1158556418}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1169770972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13666,7 +13704,6 @@ MonoBehaviour:
     pathToFollow: {fileID: 117629903}
   - spawnTime: 5
     pathToFollow: {fileID: 38800544}
-  victoryMenu: {fileID: 0}
 --- !u!4 &1541188747
 Transform:
   m_ObjectHideFlags: 0
