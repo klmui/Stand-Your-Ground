@@ -99,18 +99,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ShieldPressed",
+                    "name": "TriggerPressed",
                     "type": "Button",
                     "id": "72b72196-5ad3-4474-8ca4-f544bb0ff8eb",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ShieldReleased",
-                    "type": "Button",
-                    "id": "a989543c-7fa0-40f2-9bfe-5aecf3b75d43",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -286,22 +277,11 @@
                 {
                     "name": "",
                     "id": "13ed7d77-6569-4d48-abd4-a0ab91c21f96",
-                    "path": "<XRController>{LeftHand}/triggerButton",
-                    "interactions": "Press",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ShieldPressed",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5575eca4-4bb4-42af-980c-84ce81b0de3c",
-                    "path": "<XRController>{LeftHand}/triggerButton",
-                    "interactions": "Press(pressPoint=0.01,behavior=1)",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ShieldReleased",
+                    "action": "TriggerPressed",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

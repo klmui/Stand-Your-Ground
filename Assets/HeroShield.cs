@@ -51,15 +51,15 @@ public class HeroShield : MonoBehaviour
         UpdateShieldSlider();
     }
 
-    public void ShieldButtonPressed()
+    public void TriggerPressed()
     {
-        if (stamina > startupCost)
-            OpenShield();
-    }
-
-    public void ShieldButtonReleased()
-    {
-        CloseShield();
+        if (shieldOpen)
+            CloseShield();
+        else
+        {
+            if (stamina > startupCost)
+                OpenShield();
+        }
     }
 
     public void OpenShield()
