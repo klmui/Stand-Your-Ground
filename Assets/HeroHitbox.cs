@@ -8,6 +8,8 @@ public class HeroHitbox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        other.enabled = false;
+
         EnemyCustomDamage customDamage = other.gameObject.GetComponent<EnemyCustomDamage>();
         if (customDamage != null)
             heroStats.TakeDamage(customDamage.Dmg);
