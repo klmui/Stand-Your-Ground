@@ -45,6 +45,8 @@ public class DragonBehavior : MonoBehaviour
 
     private Vector3 lastPos;
 
+    private int lastAttackIndex;
+
     [System.Serializable] public struct attack
     {
         public string triggerName;
@@ -182,7 +184,15 @@ public class DragonBehavior : MonoBehaviour
 
     private void GetNextAttack()
     {
-        nextAttack = attacks[Random.Range(0, attacks.Length)];
+        //Make next attack unique from the last one
+        int nextAttackIndex = Random.Range(0, attacks.Length);
+        while (nextAttackIndex == lastAttackIndex)
+        {
+            nextAttackIndex = Random.Range(0, attacks.Length);
+        }
+
+        nextAttack = attacks[nextAttackIndex];
+        lastAttackIndex = nextAttackIndex;
 
         nextAttackTime = Time.time + Random.Range(minRandAttackTime, maxRandAttackTime);
     }
@@ -211,7 +221,6 @@ public class DragonBehavior : MonoBehaviour
         state = DragonState.dead;
         agent.speed = 0;
         anim.SetTrigger("Die");
-        GameManager.Instance.Victory();
     }
 
     public void EnableClawHitbox()
@@ -244,6 +253,11 @@ public class DragonBehavior : MonoBehaviour
     {
         flamethrower.Stop();
         fireHitbox.SetActive(false);
+    }
+
+    public void DragonKilled()
+    {
+        GameManager.Instance.Victory();
     }
 }
 
