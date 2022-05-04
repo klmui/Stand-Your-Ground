@@ -208,7 +208,10 @@ public class DragonBehavior : MonoBehaviour
 
     public void Die()
     {
+        state = DragonState.dead;
+        agent.speed = 0;
         anim.SetTrigger("Die");
+        GameManager.Instance.Victory();
     }
 
     public void EnableClawHitbox()
