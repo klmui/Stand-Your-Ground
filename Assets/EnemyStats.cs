@@ -61,6 +61,7 @@ public class EnemyStats : MonoBehaviour
 
         //Show debug message
         Debug.Log("hit!");
+        PlayerSwordSFX.Instance.HitEnemy();
 
         //Play blood splatter animation
         particleSys.Play();

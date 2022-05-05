@@ -49,6 +49,7 @@ public class DragonHPController : MonoBehaviour
         hp -= dmg;
 
         //Play take damage sound [TODO]
+        PlayerSwordSFX.Instance.HitEnemy();
 
         //Check if dead
         if(hp <= 0)

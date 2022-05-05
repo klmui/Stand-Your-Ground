@@ -14,6 +14,7 @@ public class Hero_Stats : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Slider heroHpSlider;
+    [SerializeField] private AudioSource getHitSFX;
 
     private bool invincible;
     [SerializeField] private float invincibleDuration;
@@ -50,6 +51,8 @@ public class Hero_Stats : MonoBehaviour
         }
 
         hp -= dmg;
+
+        getHitSFX.Play();
 
         if(hp <= 0)
         {

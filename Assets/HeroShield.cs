@@ -19,6 +19,8 @@ public class HeroShield : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private Slider shieldSlider;
 
+    [SerializeField] private AudioSource parryAudio;
+
     private void Start()
     {
         timeToStartRecharge = Time.time;
@@ -27,6 +29,8 @@ public class HeroShield : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Block!");
+
+        parryAudio.Play();
 
         collision.collider.enabled = false;
     }
