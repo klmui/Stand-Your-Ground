@@ -24,14 +24,21 @@ public class DragonHPController : MonoBehaviour
         UpdateHPBar();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    private bool attacking;
 
+    public void SetAttacking(int atk) //This is really dumb but apparently you can't pass bools through anim events so ¯\_(-.-)_/¯
+    {
+        if (atk == 0)
+            attacking = false;
+        else
+            attacking = true;
     }
 
     public void TakeDamage(int dmg)
     {
+        if (attacking)
+            return;
+
         //Check if invincible
         if (invincible)
         {
@@ -48,7 +55,7 @@ public class DragonHPController : MonoBehaviour
         //Take damage
         hp -= dmg;
 
-        //Play take damage sound [TODO]
+        //Play take damage sound
         PlayerSwordSFX.Instance.HitEnemy();
 
         //Check if dead
