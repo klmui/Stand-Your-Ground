@@ -220,29 +220,31 @@ public class NPCController : MonoBehaviour
 
                     if(Time.time >= nextAttackTime) //Time to start new attack (or at least check)
                     {
-                        if(NPCManager.Instance.CanNewEnemyAttack())
+                        if (InRange())
                         {
-                            //Start Attack
-                            attackController.DoRandomAttack();
-                            state = NPCStateEnum.attacking;
-                            swordHitbox.enabled = true;
+                            if (NPCManager.Instance.CanNewEnemyAttack())
+                            {
+                                //Start Attack
+                                attackController.DoRandomAttack();
+                                state = NPCStateEnum.attacking;
 
-                            //Stop strafing
-                            agent.SetDestination(transform.position);
-                            agent.speed = 0;
+                                //Stop strafing
+                                agent.SetDestination(transform.position);
+                                agent.speed = 0;
 
-                            //Look at player
-                            Vector3 lookPos = playerTransform.position - transform.position;
-                            lookPos.y = 0;
-                            Quaternion rot = Quaternion.LookRotation(lookPos);
-                            transform.rotation = rot;
+                                //Look at player
+                                Vector3 lookPos = playerTransform.position - transform.position;
+                                lookPos.y = 0;
+                                Quaternion rot = Quaternion.LookRotation(lookPos);
+                                transform.rotation = rot;
 
-                            return;
-                        }
-                        else
-                        {
-                            //Can't attack now, get new attack time
-                            SetNextPossibleAttackTime();
+                                return;
+                            }
+                            else
+                            {
+                                //Can't attack now, get new attack time
+                                SetNextPossibleAttackTime();
+                            }
                         }
                     }
                     else //Circle around player
@@ -290,6 +292,23 @@ public class NPCController : MonoBehaviour
         }
     }
 
+    private bool InRange()
+    {
+        Vector3 dragPos = transform.position;
+        Vector3 playerPos = playerTransform.position;
+        dragPos.y = 0;
+        playerPos.y = 0;
+
+        float distToTarg = Mathf.Abs((dragPos - playerPos).magnitude - targetDistanceToPlayer);
+
+        Debug.Log("DistToTarg: " + distToTarg);
+
+        if (distToTarg <= 2.5f)
+            return true;
+
+        return false;
+    }
+
     public void SetNextPossibleAttackTime()
     {
         nextAttackTime = Time.time + Random.Range(minRandAttackTime, maxRandAttackTime);
@@ -303,8 +322,6 @@ public class NPCController : MonoBehaviour
         {
             state = NPCStateEnum.aggrod;
             NPCManager.Instance.EnemyDoneAttack();
-
-            swordHitbox.enabled = false;
 
             SetNextPossibleAttackTime();
         }
@@ -334,5 +351,15 @@ public class NPCController : MonoBehaviour
         lookPos.y = 0;
         Quaternion rot = Quaternion.LookRotation(lookPos);
         transform.rotation = rot;*/
+    }
+
+    public void EnableSword()
+    {
+        swordHitbox.enabled = true;
+    }
+
+    public void DisableSword()
+    {
+        swordHitbox.enabled = false;
     }
 }

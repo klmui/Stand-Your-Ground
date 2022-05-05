@@ -12,6 +12,8 @@ public class AnimEventPasser : MonoBehaviour
     [SerializeField] private UnityEvent event5;
     [SerializeField] private UnityEvent event6;
 
+    [SerializeField] private NPCController controller;
+
     public void CallEvent1()
     {
         //Debug.Log("Event1");
@@ -46,5 +48,15 @@ public class AnimEventPasser : MonoBehaviour
     {
         //Debug.Log("Event5");
         event6.Invoke();
+    }
+
+    public void EnableSword()
+    {
+        controller.EnableSword();
+    }
+
+    public void DisableSword()
+    {
+        controller.DisableSword();
     }
 }

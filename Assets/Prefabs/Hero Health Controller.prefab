@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 3
   heroHpSlider: {fileID: 0}
-  invincibleDuration: 0.7
+  invincibleDuration: 0.4
