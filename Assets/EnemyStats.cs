@@ -14,7 +14,7 @@ public class EnemyStats : MonoBehaviour
 
     [SerializeField] private int hp = 3;
     bool invincible = false;
-    float invincibleDuration = 1f / 60f;
+    float invincibleDuration = 10f / 60f;
     float invincibleEndTime;
     bool dead = false;
 
@@ -51,14 +51,14 @@ public class EnemyStats : MonoBehaviour
             return;
 
         //If the enemy is invincible, don't take damage
-        /*
+        
         if (invincible)
         {
             if (Time.time >= invincibleEndTime)
                 invincible = false;
             else
                 return;
-        }*/
+        }
 
 
         //Show debug message

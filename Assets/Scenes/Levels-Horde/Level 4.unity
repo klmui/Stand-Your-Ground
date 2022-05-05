@@ -12867,7 +12867,7 @@ MonoBehaviour:
     pathToFollow: {fileID: 1632622296}
   - spawnTime: 9
     pathToFollow: {fileID: 1744631966}
-  - spawnTime: 10
+  - spawnTime: 9.1
     pathToFollow: {fileID: 288838511}
 --- !u!4 &1541188747
 Transform:
