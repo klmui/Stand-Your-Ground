@@ -107,7 +107,6 @@ public class DragonBehavior : MonoBehaviour
                     {
                         if (InRange())
                         {
-
                             //Start Attack
                             DoAttack();
                             state = DragonState.attacking;
@@ -126,7 +125,7 @@ public class DragonBehavior : MonoBehaviour
                         }
                         else
                         {
-                            nextAttackTime = Time.time + Random.Range(minRandAttackTime, maxRandAttackTime);
+                            //nextAttackTime = Time.time + Random.Range(minRandAttackTime, maxRandAttackTime);
                         }
                     }
                     else //Circle around player
@@ -204,7 +203,7 @@ public class DragonBehavior : MonoBehaviour
         dragPos.y = 0;
         playerPos.y = 0;
 
-        if ((dragPos - playerPos).magnitude <= nextAttack.targDistance + 5)
+        if (Mathf.Abs((dragPos - playerPos).magnitude - nextAttack.targDistance) <= 5)
             return true;
 
         return false;

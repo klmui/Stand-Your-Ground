@@ -64,7 +64,7 @@ public class HeroShield : MonoBehaviour
 
     public void OpenShield()
     {
-        if (shieldOpen == false)
+        if ((shieldOpen == false) && (stamina > startupCost))
         {
             shieldOpen = true;
             anim.ResetTrigger("Close");
