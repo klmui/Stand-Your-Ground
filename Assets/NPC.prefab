@@ -5003,7 +5003,7 @@ MonoBehaviour:
   particleSys: {fileID: 4804714858351434816}
   anim: {fileID: 8442893258137546002}
   npcController: {fileID: 8392473544403168244}
-  hp: 2
+  hp: 3
 --- !u!114 &8392473544403168244
 MonoBehaviour:
   m_ObjectHideFlags: 0

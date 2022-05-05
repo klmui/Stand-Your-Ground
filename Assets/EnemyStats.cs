@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyStats : MonoBehaviour
 {
@@ -50,18 +51,20 @@ public class EnemyStats : MonoBehaviour
             return;
 
         //If the enemy is invincible, don't take damage
+        /*
         if (invincible)
         {
             if (Time.time >= invincibleEndTime)
                 invincible = false;
             else
                 return;
-        }
+        }*/
 
 
         //Show debug message
         Debug.Log("hit!");
-        PlayerSwordSFX.Instance.HitEnemy();
+        if(SceneManager.GetActiveScene().buildIndex != 5)
+            PlayerSwordSFX.Instance.HitEnemy();
 
         //Play blood splatter animation
         particleSys.Play();

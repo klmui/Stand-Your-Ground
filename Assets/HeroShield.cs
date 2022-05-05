@@ -71,7 +71,6 @@ public class HeroShield : MonoBehaviour
     {
         if ((shieldOpen == false) && (stamina > startupCost))
         {
-            openShieldAudio.Play();
             shieldOpen = true;
             anim.ResetTrigger("Close");
             anim.SetTrigger("Open");
@@ -91,5 +90,10 @@ public class HeroShield : MonoBehaviour
     public void UpdateShieldSlider()
     {
         shieldSlider.value = Mathf.Max(0, stamina / maxStamina);
+    }
+
+    public void PlayOpenShieldSound()
+    {
+        openShieldAudio.Play();
     }
 }
