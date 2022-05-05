@@ -20,6 +20,7 @@ public class HeroShield : MonoBehaviour
     [SerializeField] private Slider shieldSlider;
 
     [SerializeField] private AudioSource parryAudio;
+    [SerializeField] private AudioSource openShieldAudio;
 
     private void Start()
     {
@@ -70,6 +71,7 @@ public class HeroShield : MonoBehaviour
     {
         if ((shieldOpen == false) && (stamina > startupCost))
         {
+            openShieldAudio.Play();
             shieldOpen = true;
             anim.ResetTrigger("Close");
             anim.SetTrigger("Open");

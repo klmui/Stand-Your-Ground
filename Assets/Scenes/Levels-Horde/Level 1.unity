@@ -5078,46 +5078,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1409311225}
     m_Modifications:
-    - target: {fileID: 2461361420870643112, guid: 7f2399686fc86b458ab03114ea80e5e7, type: 3}
-      propertyPath: sounds.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2461361420870643112, guid: 7f2399686fc86b458ab03114ea80e5e7, type: 3}
-      propertyPath: sounds.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 03c58b5083251b54fbee365c2b1b490a, type: 3}
-    - target: {fileID: 2461361420870643112, guid: 7f2399686fc86b458ab03114ea80e5e7, type: 3}
-      propertyPath: sounds.Array.data[3].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 6f040d122d4ab805db9cc76672863d1f, type: 3}
-    - target: {fileID: 2461361420870643112, guid: 7f2399686fc86b458ab03114ea80e5e7, type: 3}
-      propertyPath: sounds.Array.data[3].name
-      value: game-over
-      objectReference: {fileID: 0}
-    - target: {fileID: 2461361420870643112, guid: 7f2399686fc86b458ab03114ea80e5e7, type: 3}
-      propertyPath: sounds.Array.data[4].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: b94cef830bdb188ee9052d91120dc3e5, type: 3}
-    - target: {fileID: 2461361420870643112, guid: 7f2399686fc86b458ab03114ea80e5e7, type: 3}
-      propertyPath: sounds.Array.data[4].name
-      value: victory
-      objectReference: {fileID: 0}
-    - target: {fileID: 2461361420870643112, guid: 7f2399686fc86b458ab03114ea80e5e7, type: 3}
-      propertyPath: sounds.Array.data[3].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2461361420870643112, guid: 7f2399686fc86b458ab03114ea80e5e7, type: 3}
-      propertyPath: sounds.Array.data[4].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2461361420870643112, guid: 7f2399686fc86b458ab03114ea80e5e7, type: 3}
-      propertyPath: sounds.Array.data[3].volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2461361420870643112, guid: 7f2399686fc86b458ab03114ea80e5e7, type: 3}
-      propertyPath: sounds.Array.data[4].volume
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2461361420870643113, guid: 7f2399686fc86b458ab03114ea80e5e7, type: 3}
       propertyPath: m_Name
       value: AudioManager

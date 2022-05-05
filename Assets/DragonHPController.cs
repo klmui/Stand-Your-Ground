@@ -16,6 +16,8 @@ public class DragonHPController : MonoBehaviour
 
     [SerializeField] private Slider hpSlider;
 
+    [SerializeField] private ParticleSystem bloodFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +59,9 @@ public class DragonHPController : MonoBehaviour
 
         //Play take damage sound
         PlayerSwordSFX.Instance.HitEnemy();
+
+        //bloodfx
+        bloodFX.Play();
 
         //Check if dead
         if(hp <= 0)

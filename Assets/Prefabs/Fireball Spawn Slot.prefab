@@ -395,10 +395,6 @@ PrefabInstance:
       propertyPath: respawnSlot
       value: 
       objectReference: {fileID: 1741447844487842081}
-    - target: {fileID: 2129241407, guid: d0c00082fbae52742bbd03cc0bccf5ea, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5069417104131426616, guid: d0c00082fbae52742bbd03cc0bccf5ea, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -302,7 +302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38800543}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 85.87, y: 23.26, z: 46.55}
+  m_LocalPosition: {x: 70.44, y: 23.26, z: 42.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3402,6 +3402,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4607489187838822, guid: 00e2e59cbc04eab4a982218df54ce70b, type: 3}
   m_PrefabInstance: {fileID: 372399818}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &372798893 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6166852899000043072, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 1158556418}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &375111778 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1694894201118028, guid: 6dcae7204dd466c4c862bc640ea7c02e, type: 3}
@@ -4061,8 +4066,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 407768414}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.19, y: 0, z: 7.34}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.2399979, y: 0, z: 11.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6966,7 +6971,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742250387}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.8, y: 0, z: 5.46}
+  m_LocalPosition: {x: -4.4, y: 0, z: 3.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9078,6 +9083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 3
   heroHpSlider: {fileID: 322213529}
+  getHitSFX: {fileID: 372798893}
   invincibleDuration: 0.5
 --- !u!4 &990236402
 Transform:
@@ -13701,7 +13707,7 @@ MonoBehaviour:
   - spawnTime: 1
     pathToFollow: {fileID: 1655587844}
   - spawnTime: 2
-    pathToFollow: {fileID: 117629903}
+    pathToFollow: {fileID: 158542840}
   - spawnTime: 5
     pathToFollow: {fileID: 38800544}
 --- !u!4 &1541188747

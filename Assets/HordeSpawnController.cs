@@ -5,6 +5,7 @@ using UnityEngine;
 public class HordeSpawnController : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject hordeSpawnSFX;
 
     private bool doneSpawning;
     private int numEnemiesLeft;
@@ -58,6 +59,9 @@ public class HordeSpawnController : MonoBehaviour
                 NPCController spawnedNPC = Instantiate(enemyPrefab).GetComponent<NPCController>();
                 spawnedNPC.SetPath(pathToFollow);
             }
+
+            GameObject sfx = Instantiate(hordeSpawnSFX);
+            hordeSpawnSFX.transform.position = pathToFollow.position;
 
             //Pop current time and path
             spawnBursts.RemoveAt(0);

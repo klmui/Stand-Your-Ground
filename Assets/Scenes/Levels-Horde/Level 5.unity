@@ -8932,6 +8932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 3
   heroHpSlider: {fileID: 639515449}
+  getHitSFX: {fileID: 1817641664}
   invincibleDuration: 0.5
 --- !u!4 &990236402
 Transform:
@@ -13382,7 +13383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724175d95799d5249904f9d0ce3788ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 8392473544403168240, guid: aa5456f5e9000e04db43ec3ec0b354bf, type: 3}
+  enemyPrefab: {fileID: 8392473544403168240, guid: 75ac2e07e61afc946be8057431355770, type: 3}
+  hordeSpawnSFX: {fileID: 6505473900305848403, guid: 70099c0a9eacbe64e99455ad7ec13561, type: 3}
   spawnBursts:
   - spawnTime: 0.2
     pathToFollow: {fileID: 1453407447}
@@ -20824,6 +20826,11 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 87dc0b67e5fe70f40a31e17b0c0058b4, type: 3}
+--- !u!82 &1817641664 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6166852899000043072, guid: 899df8ad2001fcd409e1134de9a06709, type: 3}
+  m_PrefabInstance: {fileID: 639515448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1820226662 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1076262714343606, guid: 68cbfa1438162b243ac02fb9e3e30581, type: 3}
