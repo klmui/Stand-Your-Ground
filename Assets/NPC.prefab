@@ -44,7 +44,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.26877087
+  m_Radius: 0.33
   m_Height: 1.8529739
   m_Direction: 1
   m_Center: {x: 0, y: 0.80148697, z: 0}
@@ -5003,7 +5003,7 @@ MonoBehaviour:
   particleSys: {fileID: 4804714858351434816}
   anim: {fileID: 8442893258137546002}
   npcController: {fileID: 8392473544403168244}
-  hp: 3
+  hp: 2
 --- !u!114 &8392473544403168244
 MonoBehaviour:
   m_ObjectHideFlags: 0

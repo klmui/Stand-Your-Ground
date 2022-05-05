@@ -13,7 +13,7 @@ public class EnemyStats : MonoBehaviour
 
     [SerializeField] private int hp = 3;
     bool invincible = false;
-    float invincibleDuration = 10f / 60f;
+    float invincibleDuration = 1f / 60f;
     float invincibleEndTime;
     bool dead = false;
 
