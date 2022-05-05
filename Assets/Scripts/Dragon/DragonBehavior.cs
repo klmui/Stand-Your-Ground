@@ -123,12 +123,38 @@ public class DragonBehavior : MonoBehaviour
 
                             return;
                         }
-                        else
+                        else //Move towards target
                         {
-                            //nextAttackTime = Time.time + Random.Range(minRandAttackTime, maxRandAttackTime);
+                            //get direction to player
+                            Vector3 dir = (playerTransform.position - transform.position).normalized;
+                            //dir.y = 0;
+
+                            //spir dir left or right depending on strafe speed
+                            //dir = Quaternion.Euler(0, 90, 0) * dir;
+                            //dir *= strafeSpeed;
+
+                            //Adjust target position based on distance to player
+                            float distanceAway = (playerTransform.position - transform.position).magnitude;
+                            float distToMoveForward = distanceAway - nextAttack.targDistance;
+                            dir = ((playerTransform.position - transform.position).normalized * distToMoveForward);
+                            dir.y = 0;
+
+                            //Move in target direction
+                            agent.SetDestination(transform.position + dir);
+
+                            //Look at player
+                            Vector3 lookPos = playerTransform.position - transform.position;
+                            lookPos.y = 0;
+                            Quaternion rot = Quaternion.LookRotation(lookPos);
+                            transform.rotation = rot;
+
+                            //Set animation values + navmesh Speed
+                            //float strafeSpeedLerped = Mathf.Lerp(anim.GetFloat("StrafeSpeed"), strafeSpeed, Time.deltaTime * 8);
+                            agent.speed = Mathf.Abs(strafeSpeed);
+                            //anim.SetFloat("Speed", Mathf.Abs(strafeSpeed));
                         }
-                    }
-                    else //Circle around player
+                    } 
+                    else  //Circle around player
                     {
                         //get direction to player
                         Vector3 dir = (playerTransform.position - transform.position).normalized;
@@ -165,10 +191,12 @@ public class DragonBehavior : MonoBehaviour
                 }
             case DragonState.attacking:
                 {
+                    agent.speed = 0;
                     break;
                 }
             case DragonState.dead:
                 {
+                    agent.speed = 0;
                     break;
                 }
         }
@@ -203,7 +231,11 @@ public class DragonBehavior : MonoBehaviour
         dragPos.y = 0;
         playerPos.y = 0;
 
-        if (Mathf.Abs((dragPos - playerPos).magnitude - nextAttack.targDistance) <= 5)
+        float distToTarg = Mathf.Abs((dragPos - playerPos).magnitude - nextAttack.targDistance);
+
+        Debug.Log("DistToTarg: " + distToTarg);
+
+        if (distToTarg <= 2.5f)
             return true;
 
         return false;
