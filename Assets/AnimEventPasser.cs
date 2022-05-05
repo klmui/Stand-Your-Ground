@@ -10,6 +10,7 @@ public class AnimEventPasser : MonoBehaviour
     [SerializeField] private UnityEvent event3;
     [SerializeField] private UnityEvent event4;
     [SerializeField] private UnityEvent event5;
+    [SerializeField] private UnityEvent event6;
 
     public void CallEvent1()
     {
@@ -39,5 +40,11 @@ public class AnimEventPasser : MonoBehaviour
     {
         //Debug.Log("Event5");
         event5.Invoke();
+    }
+
+    public void PlayStepSFX()
+    {
+        //Debug.Log("Event5");
+        event6.Invoke();
     }
 }

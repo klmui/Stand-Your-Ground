@@ -47,6 +47,8 @@ public class DragonBehavior : MonoBehaviour
 
     private int lastAttackIndex;
 
+    [SerializeField] private Transform agentDest;
+
     [System.Serializable] public struct attack
     {
         public string triggerName;
@@ -127,20 +129,26 @@ public class DragonBehavior : MonoBehaviour
                         {
                             //get direction to player
                             Vector3 dir = (playerTransform.position - transform.position).normalized;
-                            //dir.y = 0;
+                            dir.y = 0;
 
                             //spir dir left or right depending on strafe speed
-                            //dir = Quaternion.Euler(0, 90, 0) * dir;
-                            //dir *= strafeSpeed;
+                            dir = Quaternion.Euler(0, 90, 0) * dir;
+                            dir *= strafeSpeed/8f;
+
+                            Debug.Log("Dir after rotate: " + dir);
 
                             //Adjust target position based on distance to player
                             float distanceAway = (playerTransform.position - transform.position).magnitude;
                             float distToMoveForward = distanceAway - nextAttack.targDistance;
-                            dir = ((playerTransform.position - transform.position).normalized * distToMoveForward);
+                            dir += ((playerTransform.position - transform.position).normalized * distToMoveForward);
                             dir.y = 0;
+
+                            Debug.Log("Dir plus towards/away player: " + dir);
 
                             //Move in target direction
                             agent.SetDestination(transform.position + dir);
+
+                            agentDest.position = transform.position + dir;
 
                             //Look at player
                             Vector3 lookPos = playerTransform.position - transform.position;

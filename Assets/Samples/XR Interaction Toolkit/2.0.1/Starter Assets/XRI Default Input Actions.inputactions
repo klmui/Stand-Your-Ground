@@ -115,6 +115,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "TriggerButtonIdkMan",
+                    "type": "Button",
+                    "id": "2a37e52f-c878-4e20-8cdb-63d1b3721609",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -287,7 +296,7 @@
                     "name": "",
                     "id": "13ed7d77-6569-4d48-abd4-a0ab91c21f96",
                     "path": "<XRController>{LeftHand}/triggerPressed",
-                    "interactions": "Press",
+                    "interactions": "Press(pressPoint=0.8)",
                     "processors": "",
                     "groups": "",
                     "action": "TriggerPressed",
@@ -298,10 +307,21 @@
                     "name": "",
                     "id": "7aca4cfd-3612-4534-9dfa-48435f5dddeb",
                     "path": "<XRController>{LeftHand}/triggerPressed",
-                    "interactions": "Press(behavior=1)",
+                    "interactions": "Press(pressPoint=0.2,behavior=1)",
                     "processors": "",
                     "groups": "",
                     "action": "TriggerReleased",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "18c4a775-3481-4c51-942f-9d12b948bd09",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TriggerButtonIdkMan",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
