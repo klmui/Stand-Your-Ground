@@ -122,8 +122,8 @@
                     "id": "2a37e52f-c878-4e20-8cdb-63d1b3721609",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
+                    "interactions": "Press",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -289,28 +289,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Button_1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "13ed7d77-6569-4d48-abd4-a0ab91c21f96",
-                    "path": "<XRController>{LeftHand}/triggerPressed",
-                    "interactions": "Press(pressPoint=0.8)",
-                    "processors": "",
-                    "groups": "",
-                    "action": "TriggerPressed",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7aca4cfd-3612-4534-9dfa-48435f5dddeb",
-                    "path": "<XRController>{LeftHand}/triggerPressed",
-                    "interactions": "Press(pressPoint=0.2,behavior=1)",
-                    "processors": "",
-                    "groups": "",
-                    "action": "TriggerReleased",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
